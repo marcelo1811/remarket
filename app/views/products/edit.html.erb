@@ -1,0 +1,15 @@
+<h2>Editar produto</h2>
+
+<%= simple_form_for([@store, @product]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= render partial: 'form_inputs', locals: { f: f } %>
+  	
+  	<%= f.input :is_active, as: :boolean %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, "Atualizar" %>
+  </div>
+<% end %>
