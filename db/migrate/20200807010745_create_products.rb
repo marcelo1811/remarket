@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.references :store, null: false, foreign_key: true
       t.string :name
       t.string :description
-      t.boolean :is_active
+      t.boolean :is_active, default: true
 
       t.timestamps
     end

@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_08_07_011706) do
     t.bigint "store_id", null: false
     t.string "name"
     t.string "description"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["store_id"], name: "index_products_on_store_id"
