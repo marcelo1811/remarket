@@ -5,6 +5,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :catalogues
-  has_many :stores
+  has_one :catalogue
+  has_one :store
+
+  def slug
+    "#{self.first_name} #{self.last_name}".split(' ').join('-').downcase
+  end
 end

@@ -11,7 +11,7 @@ module Admin
 
       if @store.valid?
         @store.save!
-        redirect_to users_path
+        redirect_to admin_path
       else
         render 'new'
       end

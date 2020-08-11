@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
   def index
-    @stores = current_user.stores    
+    @store = current_user.store
+
+    redirect_to new_admin_store_path if @store.blank?
   end
 end

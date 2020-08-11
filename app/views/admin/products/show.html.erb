@@ -1,6 +1,6 @@
 <h1><%= @product.name %></h1>
 
-<%= link_to 'Editar produto', edit_admin_store_product_path([@store, @product]) %>
-<%= link_to 'Deletar produto', admin_store_product_path([@store, @product]),
+<%= link_to 'Editar produto', edit_admin_store_product_path(@store, @product) %>
+<%= link_to 'Deletar produto', admin_store_product_path(@store, @product),
 	method: :delete,
 	data: { confirm: 'Tem certaza?' } %>
