@@ -4,6 +4,7 @@ class UsersController < ApplicationController
       redirect_to [:admin]
     end
 
-    @stores = current_user.stores    
+    @catalogue = current_user.catalogue || Catalogue.create_default(current_user)
+    @catalogue_products = @catalogue.product_catalogues
   end
 end

@@ -1,0 +1,11 @@
+<h1>Fornecedores para revenda</h1>
+
+<div>
+	<% @stores.each do |store| %>
+		<div>
+			<%= link_to store_path(store) do %>
+				<%= store.name %>
+			<% end %>
+		</div>
+	<% end %>
+</div>

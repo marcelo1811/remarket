@@ -1,13 +1,18 @@
-<h1>olá <%= current_user.first_name %></h1>
+<h1><%= @catalogue.name %></h1>
 
-<div>
-	<% @stores.each do |store| %>
+
+<% if @catalogue_products.present? %>
+	<% @catalogue.product_catalogues.each do |product_catalogue| %>
 		<div>
-			<%= link_to store_path(store) do %>
-				<%= store.name %>
-			<% end %>
+			<%= product_catalogue.product.name %> - <%= product_catalogue.product.store.name %>
 		</div>
 	<% end %>
-</div>
+<% else %>
+	<div>
+		<h3>Você ainda não possui nenhum produto</h3>
+	</div>
+<% end %>
 
-<%= link_to 'Nova loja', new_store_path, class: 'btn btn-orange' %>
+<div>
+	<%= link_to 'Buscar fornecedores', stores_path %>
+</div>
