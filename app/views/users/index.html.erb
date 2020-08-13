@@ -2,9 +2,21 @@
 
 
 <% if @catalogue_products.present? %>
-	<% @catalogue.product_catalogues.each do |product_catalogue| %>
+	<% @catalogue.product_catalogues.is_available_by_provider.each do |product_catalogue| %>
 		<div>
-			<%= product_catalogue.product.name %> - <%= product_catalogue.product.store.name %>
+			<p>
+				Nome - <%= product_catalogue.product.name %>
+			</p>
+			<p>
+				Loja - <%= product_catalogue.product.store.name %>
+			</p>
+			<p>
+				Preço de custo - à partir de <%= product_catalogue.product.cheapest_product_variant.price %>
+			</p>
+			<p>
+				Preço de revenda - <%= product_catalogue.resell_price %>
+			</p>
+			<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue) %>
 		</div>
 	<% end %>
 <% else %>

@@ -1,2 +1,15 @@
 <h1><%= @store.name %></h1>
-<h2><%= @product.name %></h2>
+
+
+<h2>Nome</h2>
+<p><%= @product.name %></p>
+
+<h3>Descrição</h3>
+<p><%= @product.description %></p>
+
+<h3>Variação</h3>
+<% @product.product_variants.each do |variant| %>
+	<p><%= variant.name %> - <%= variant.price %></p>
+<% end %>
+
+<%= link_to 'Voltar para catálogo', @store %>
