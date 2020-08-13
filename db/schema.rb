@@ -37,13 +37,11 @@ ActiveRecord::Schema.define(version: 2020_08_11_022136) do
   create_table "product_variants", force: :cascade do |t|
     t.string "name"
     t.bigint "product_id", null: false
-    t.bigint "variants_id", null: false
     t.bigint "price"
     t.integer "sku"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_product_variants_on_product_id"
-    t.index ["variants_id"], name: "index_product_variants_on_variants_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -81,17 +79,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_022136) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "variants", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   add_foreign_key "catalogues", "users"
   add_foreign_key "product_catalogues", "catalogues"
   add_foreign_key "product_catalogues", "products"
   add_foreign_key "product_variants", "products"
-  add_foreign_key "product_variants", "variants", column: "variants_id"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "users"
 end

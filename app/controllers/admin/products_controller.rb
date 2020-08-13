@@ -5,10 +5,12 @@ module Admin
 
     def new
       @product = Product.new
+      @product_variants = @product.variants_for_form
     end
 
     def create
       @product = Product.new(product_params.merge(store: @store))
+      @product_variants = @product.variants_for_form(product_params[:variants])
 
       if @product.valid?
         @product.save!
@@ -20,9 +22,13 @@ module Admin
 
     def show; end
 
-    def edit; end
+    def edit
+      @product_variants = @product.variants_for_form
+    end
 
     def update
+      @product_variants = @product.variants_for_form(product_params[:variants])
+
       if @product.update(product_params)
         redirect_to [:admin, @store, @product]
       else
@@ -39,7 +45,7 @@ module Admin
     private
 
     def product_params
-      params.require(:product).permit(:name, :description, :is_active, :price)
+      params.require(:product).permit(:name, :description, :is_active, variants: [[:name, :price, :id]])
     end
 
     def set_store

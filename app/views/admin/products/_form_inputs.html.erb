@@ -4,7 +4,4 @@
 <%= f.input :description,
             required: true,
             autofocus: true %>
-<%= f.input :price,
-			required: true,
-			autofocus: true %>
-
+<%= react_component("admin/products/form/ProductVariationsInput", { product_variants: product_variants }) %>

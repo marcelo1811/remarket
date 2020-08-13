@@ -8,4 +8,6 @@
 	</div>
 </div>
 
-<%= link_to 'Nova loja', new_admin_store_path, class: 'btn btn-orange' %>
+<% if current_user.store.blank? %>
+	<%= link_to 'Nova loja', new_admin_store_path, class: 'btn btn-orange' %>
+<% end %>
