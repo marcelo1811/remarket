@@ -4,6 +4,7 @@ class CreateProductCatalogues < ActiveRecord::Migration[6.0]
       t.references :product, null: false, foreign_key: true
       t.references :catalogue, null: false, foreign_key: true
       t.bigint :comission
+      t.boolean :is_active, default: true
 
       t.timestamps
     end

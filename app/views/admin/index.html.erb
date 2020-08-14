@@ -1,0 +1,13 @@
+<h1>olá <%= current_user.first_name %></h1>
+
+<div>
+	<div>
+		<%= link_to admin_store_path(@store) do %>
+			<%= @store.name %>
+		<% end %>
+	</div>
+</div>
+
+<% if current_user.store.blank? %>
+	<%= link_to 'Nova loja', new_admin_store_path, class: 'btn btn-orange' %>
+<% end %>

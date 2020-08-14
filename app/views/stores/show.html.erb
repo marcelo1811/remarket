@@ -1,0 +1,15 @@
+<h1><%= @store.name %></h1>
+
+<% if @store.is_subscribed(current_user) %>
+	<p>Você já é revendedor</p>
+<% else %>
+	<%= link_to 'Quero ser revendedor', store_terms_path(@store) %>
+<% end %>
+
+<% @store.products.each do |product| %>
+	<div>
+		<%= link_to store_product_path(product.store, product) do %>
+			<%= product.name %>
+		<% end %>
+	</div>
+<% end %>

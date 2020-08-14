@@ -1,0 +1,18 @@
+<div>
+	<h1><%= @store.name %></h1>
+	<%= link_to 'Editar loja', edit_admin_store_path(@store) %>
+</div>
+
+<div>
+	<h1>Produtos</h1>
+
+	<% @products.each do |product| %>
+		<div>
+			<%=  link_to admin_store_product_path(@store, product) do %>
+				<%= product.name %>
+			<% end %>
+		</div>
+	<% end %>
+
+	<%= link_to 'Criar produto', new_admin_store_product_path(@store) %>
+</div>

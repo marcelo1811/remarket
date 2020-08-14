@@ -1,0 +1,27 @@
+<h2>Editar produto</h2>
+
+<h2>Nome</h2>
+<p><%= @product_catalogue.product.name %></p>
+
+<h3>Descrição</h3>
+<p><%= @product_catalogue.product.description %></p>
+
+<h3>Variação</h3>
+<% @product_catalogue.product.product_variants.each do |variant| %>
+	<p><%= variant.name %> - <%= variant.price %></p>
+<% end %>
+
+<%= simple_form_for([@catalogue, @product_catalogue]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :comission,
+	            required: true,
+	            autofocus: true %>
+  	<%= f.input :is_active, as: :boolean %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit, "Atualizar" %>
+  </div>
+<% end %>
