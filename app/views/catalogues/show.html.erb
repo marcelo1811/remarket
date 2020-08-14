@@ -1,0 +1,10 @@
+<h1><%= @catalogue.name %></h1>
+
+<% @product_catalogues.each do |product_catalogue| %>
+	<div>
+		<%= link_to catalogue_product_catalogue_path(@catalogue, product_catalogue) do %>
+			<%= product_catalogue.product.name %> - <%= product_catalogue.cheapest_resell_price %>
+		<% end %>
+	</div>
+<% end %>
+

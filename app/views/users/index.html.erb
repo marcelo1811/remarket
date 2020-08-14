@@ -14,7 +14,7 @@
 				Preço de custo - à partir de <%= product_catalogue.product.cheapest_product_variant.price %>
 			</p>
 			<p>
-				Preço de revenda - <%= product_catalogue.resell_price %>
+				Preço de revenda - <%= product_catalogue.cheapest_resell_price %>
 			</p>
 			<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue) %>
 		</div>

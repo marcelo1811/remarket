@@ -6,7 +6,7 @@ class ProductCatalogue < ApplicationRecord
 
   scope :is_available_by_provider, -> { includes(:product).where(products: { is_active: true }) }
 
-  def resell_price
+  def cheapest_resell_price
     product.cheapest_product_variant.price + comission
   end
 end

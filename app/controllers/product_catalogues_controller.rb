@@ -1,6 +1,6 @@
 class ProductCataloguesController < ApplicationController
-  before_action :set_product_catalogue, only: [:edit, :update]
-  before_action :set_catalogue, only: [:edit, :update]
+  before_action :set_product_catalogue, only: [:edit, :update, :show]
+  before_action :set_catalogue, only: [:edit, :update, :show]
 
   def edit; end
 
@@ -11,6 +11,8 @@ class ProductCataloguesController < ApplicationController
       render 'edit'
     end
   end
+
+  def show; end
 
   private
 

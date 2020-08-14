@@ -1,0 +1,16 @@
+<h1><%= @product_catalogue.product.name %></h1>
+
+<h3>Descrição</h3>
+<p><%= @product_catalogue.product.description %></p>
+
+<h3>Preços</h3>
+
+<% @product_catalogue.product.product_variants.each do |product_variant| %>
+	<div>
+		<%= product_variant.name %> - <%= product_variant.resell_price(@product_catalogue) %>
+	</div>
+<% end %>
+
+<div>
+	<%= link_to 'Pedir ao vendedor', "https://wa.me/554192216979?text=Olá%20tenho%20interesse%20neste%20produto%20#{request.original_url}", target: "_blank" %>
+</div>
