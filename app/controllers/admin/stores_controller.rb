@@ -1,6 +1,6 @@
 module Admin
   class StoresController < ApplicationController
-    before_action :set_store, only: [:show, :edit, :update]
+    before_action :set_store, only: [:edit, :update]
     
     def new
       @store = Store.new
@@ -17,15 +17,12 @@ module Admin
       end
     end
 
-    def show
-      @products = @store.products
-    end
 
     def edit; end
 
     def update
       if @store.update(store_params)
-        redirect_to [:admin, @store]
+        redirect_to [:admin]
       else
         render 'edit'
       end

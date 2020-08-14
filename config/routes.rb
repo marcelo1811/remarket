@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   get 'admin', to: 'admin#index', as: :admin
   namespace :admin do
-    resources :stores, only: [:new, :create, :show, :edit, :update] do
-      resources :products, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :stores, only: [:new, :create, :edit, :update] do
+      resources :products, only: [:new, :create, :edit, :update, :destroy]
     end
   end
 

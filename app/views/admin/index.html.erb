@@ -1,13 +1,52 @@
-<h1>Olá <%= current_user.first_name %></h1>
+<div class="container">
+	<div class='d-flex align-items-center'>
+		<h3><%= @store.name %></h3>
+		<%= link_to 'Editar loja', edit_admin_store_path(@store) %>
+	</div>
 
-<div>
 	<div>
-		<%= link_to admin_store_path(@store) do %>
-			<%= @store.name %>
-		<% end %>
+		<div class='d-flex justify-content-between align-items-center'>
+			<h2>Seus produtos (<%= @products.size %>)</h2>
+			<%= link_to 'Criar produto', new_admin_store_product_path(@store), class: 'btn btn-primary' %>
+		</div>
+		<div class='row justify-content-center'>
+			<% @products.each do |product| %>
+				<div class="col-sm-3">
+					<div class="row justify-content-center">
+						<div class="card m-1" style="width: 18rem;">
+							<% if product.photo.attached? %>
+								<%= cl_image_tag product.photo.key, class: 'card-img-top', alt: 'Falha na imagem', style: 'height: 18rem;' %>
+							<% end %>
+
+							 <div class="card-body">
+							    <h4 class="card-title">
+							    	<%= product.name %>
+							    </h4>
+							    <div class="card-text">
+							    	<p class='text-truncate'>
+							    		<%= product.description %>
+							    	</p>
+									<p>
+										<strong>Preço:</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %>
+									</p>
+									<p>
+										<strong>Status:</strong> <%= product.is_active ? "Ativo" : "Inativo" %>
+									</p>
+									<p class='text-truncate'>
+										<strong>Variações:</strong>
+										<% product.product_variants.each do |product_variant| %>
+											<%= product_variant.name %>;
+										<% end %>
+									</p>
+							    </div>
+							    <div class="d-flex justify-content-center">
+									<%= link_to 'Editar', edit_admin_store_product_path(@store, product), class: 'btn btn-secondary' %>
+							    </div>
+							 </div>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>
-
-<% if current_user.store.blank? %>
-	<%= link_to 'Nova loja', new_admin_store_path, class: 'btn btn-orange' %>
-<% end %>

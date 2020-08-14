@@ -1,15 +1,42 @@
-<h2>Editar produto</h2>
+<div class="container my-3">
+	<h2><%= @product.name %></h2>
 
-<%= simple_form_for([:admin, @store, @product]) do |f| %>
-  <%= f.error_notification %>
+	<%= simple_form_for([:admin, @store, @product]) do |f| %>
+	  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= render partial: 'form_inputs', locals: { f: f, product_variants: @product_variants, product: @product } %>
-  	
-  	<%= f.input :is_active, as: :boolean %>
-  </div>
-  
-  <div class="form-actions">
-    <%= f.button :submit, "Atualizar" %>
-  </div>
-<% end %>
+	  <div class="form-inputs">
+	    <%= render partial: 'form_inputs', locals: { f: f, product: @product } %>
+	  	
+	  	<div class="accordion" id="accordionExample">
+		  <div class="card">
+		    <div class="card-header" id="headingOne">
+		      <h5 class="mb-0">
+		        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		          Ver variações e preços
+		        </button>
+		      </h5>
+		    </div>
+
+		    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+		      <div class="card-body">
+				<%= react_component("admin/products/form/ProductVariationsInput", { product_variants: @product_variants }) %>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+	  	<%= f.input :is_active, as: :boolean %>
+	  </div>
+	  
+	  <div class="form-actions">
+	  	<div class="d-flex justify-content-between my-4">
+	  		<%= link_to 'Voltar', :admin, class: 'btn btn-outline-primary' %>
+	    	<%= f.button :submit, "Atualizar", class: 'btn btn-primary' %>
+	    	<%= link_to 'Exluir', admin_store_product_path(@store, @product),
+				method: :delete,
+				data: { confirm: 'Tem certaza?' },
+				class: 'btn btn-outline-danger' %>
+	  	</div>
+	  </div>
+	<% end %>
+</div>

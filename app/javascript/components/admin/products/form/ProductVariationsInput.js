@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 
 class ProductVariationsInput extends React.Component {
 	state = {
@@ -40,36 +40,45 @@ class ProductVariationsInput extends React.Component {
 		  {
 	  	    this.state.productVariants.map((variant, index) => {
 				return (
-					<div>
-						<h1>{index}</h1>
-						<Form.Group>
-							<Form.Label>Variação</Form.Label>
+					<div className='mt-5'>
+						<Row className='align-items-center'>
+							<Col sm={8}>
+								<Form.Group>
+									<Form.Label>Variação</Form.Label>
+									<Form.Control
+										type='text'
+										placeholder='ex: Modelo único, Tamanho - G'
+										name='product[variants][][name]'
+										value={variant.name}
+										required
+										onChange={(e) => this._onChangeVariant(index, 'name', e.target.value)}
+									/>
+								</Form.Group>
+							</Col>
+							<Col sm={2}>
+								<Form.Group>
+									<Form.Label>Preço</Form.Label>
+									<Form.Control
+										type='text'
+										placeholder='ex: 10,00'
+										name='product[variants][][price]'
+										value={variant.price}
+										required
+										onChange={(e) => this._onChangeVariant(index, 'price', e.target.value)}
+									/>
+								</Form.Group>
+							</Col>
+							<Col sm={2}>
+								{ 
+									this.state.productVariants.length > 1 && <Button variant='link' onClick={() => this._onClickRemoveVariant(index)}>Excluir</Button>
+								}
+							</Col>
 							<Form.Control
-								type='text'
-								placeholder='ex: Modelo único, Tamanho - G'
-								name='product[variants][][name]'
-								value={variant.name}
-								required
-								onChange={(e) => this._onChangeVariant(index, 'name', e.target.value)}
+								type='hidden'
+								name='product[variants][][id]'
+								value={variant.id}
 							/>
-						</Form.Group>
-						<Form.Group>
-							<Form.Label>Preço</Form.Label>
-							<Form.Control
-								type='text'
-								placeholder='ex: 10,00'
-								name='product[variants][][price]'
-								value={variant.price}
-								required
-								onChange={(e) => this._onChangeVariant(index, 'price', e.target.value)}
-							/>
-						</Form.Group>
-						<Form.Control
-							type='hidden'
-							name='product[variants][][id]'
-							value={variant.id}
-						/>
-						<Button onClick={() => this._onClickRemoveVariant(index)}>Remover</Button>
+						</Row>
 				  	</div>
 				)
 	  	    })
@@ -77,7 +86,7 @@ class ProductVariationsInput extends React.Component {
 		  }
 		  	
 		  	<div>
-		  		<Button onClick={() => this._onClickAddVariant()}>Adicionar nova variação</Button>
+		  		<Button variant='outline-secondary' onClick={() => this._onClickAddVariant()}>Adicionar nova variação</Button>
 		  	</div>
 		  </div>
 		);

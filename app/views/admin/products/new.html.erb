@@ -1,13 +1,20 @@
-<h2>Novo produto</h2>
+<div class="container">
+	<h2>Novo produto</h2>
 
-<%= simple_form_for([:admin, @store, @product]) do |f| %>
-  <%= f.error_notification %>
+	<%= simple_form_for([:admin, @store, @product]) do |f| %>
+	  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= render partial: 'form_inputs', locals: { f: f, product_variants: @product_variants, product: @product } %>
-  </div>
-  
-  <div class="form-actions">
-    <%= f.button :submit, "Criar" %>
-  </div>
-<% end %>
+	  <div class="form-inputs">
+	    <%= render partial: 'form_inputs', locals: { f: f, product: @product } %>
+	  
+		<%= react_component("admin/products/form/ProductVariationsInput", { product_variants: @product_variants }) %>
+	  </div>
+	  
+	  <div class="form-actions">
+	  	<div class="d-flex justify-content-between my-4">
+	  		<%= link_to 'Voltar', :admin, class: 'btn btn-outline-primary' %>
+	    	<%= f.button :submit, "Criar", class: 'btn btn-primary' %>
+	  	</div>
+	  </div>
+	<% end %>
+</div>

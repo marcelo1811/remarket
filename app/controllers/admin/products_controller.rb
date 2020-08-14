@@ -1,7 +1,7 @@
 module Admin
   class ProductsController < ApplicationController
-    before_action :set_store, only: [:show, :new, :create, :edit, :update, :destroy]
-    before_action :set_product, only: [:show, :edit, :update, :destroy]
+    before_action :set_store, only: [:new, :create, :edit, :update, :destroy]
+    before_action :set_product, only: [:edit, :update, :destroy]
 
     def new
       @product = Product.new
@@ -14,13 +14,11 @@ module Admin
 
       if @product.valid?
         @product.save!
-        redirect_to [:admin, @store]
+        redirect_to [:admin]
       else
         render 'new'
       end
     end
-
-    def show; end
 
     def edit
       @product_variants = @product.variants_for_form
@@ -30,7 +28,7 @@ module Admin
       @product_variants = @product.variants_for_form(product_params[:variants])
 
       if @product.update(product_params)
-        redirect_to [:admin, @store, @product]
+        redirect_to [:admin]
       else
         render 'edit'
       end
@@ -39,7 +37,7 @@ module Admin
     def destroy
       @product.destroy
 
-      redirect_to [:admin, @store]
+      redirect_to [:admin]
     end
 
     private
