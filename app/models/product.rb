@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   attr_accessor :variants
-  
+ 
+  has_one_attached :photo
+ 
   belongs_to :store
 
   has_many :product_variants, dependent: :destroy

@@ -45,7 +45,7 @@ module Admin
     private
 
     def product_params
-      params.require(:product).permit(:name, :description, :is_active, variants: [[:name, :price, :id]])
+      params.require(:product).permit(:name, :description, :is_active, :photo, variants: [[:name, :price, :id]])
     end
 
     def set_store
