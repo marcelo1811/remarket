@@ -4,7 +4,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= render partial: 'form_inputs', locals: { f: f, product_variants: @product_variants } %>
+    <%= render partial: 'form_inputs', locals: { f: f, product_variants: @product_variants, product: @product } %>
   </div>
   
   <div class="form-actions">
