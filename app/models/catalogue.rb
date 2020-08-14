@@ -10,7 +10,7 @@ class Catalogue < ApplicationRecord
       ProductCatalogue.create!(
         product: product,
         catalogue: self,
-        comission: 0,
+        margin: 0,
         is_active: false
       )
     end

@@ -10,6 +10,8 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  validates :photo, presence: true
+  
   validate :variants_presence
 
   after_save :create_product_variants
@@ -61,7 +63,7 @@ class Product < ApplicationRecord
       ProductCatalogue.create!(
         catalogue_id: catalogue_id,
         product: self,
-        comission: 0,
+        margin: 0,
         is_active: false
       )
     end

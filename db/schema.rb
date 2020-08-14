@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_025151) do
   create_table "product_catalogues", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.bigint "catalogue_id", null: false
-    t.bigint "comission"
+    t.decimal "margin", precision: 8, scale: 2
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_025151) do
   create_table "product_variants", force: :cascade do |t|
     t.string "name"
     t.bigint "product_id", null: false
-    t.bigint "price"
+    t.decimal "price", precision: 8, scale: 2
     t.integer "sku"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

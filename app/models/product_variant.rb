@@ -5,6 +5,6 @@ class ProductVariant < ApplicationRecord
   validates :price, presence: true
 
   def resell_price(product_catalogue)
-    price + product_catalogue.comission
+    price + product_catalogue.margin
   end
 end

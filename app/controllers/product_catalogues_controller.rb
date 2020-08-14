@@ -17,7 +17,7 @@ class ProductCataloguesController < ApplicationController
   private
 
   def product_catalogue_params
-    params.require(:product_catalogue).permit(:comission, :is_active)
+    params.require(:product_catalogue).permit(:margin, :is_active)
   end
 
   def set_product_catalogue
