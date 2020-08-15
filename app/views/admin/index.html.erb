@@ -19,27 +19,26 @@
 							<% end %>
 
 							 <div class="card-body">
-							    <h4 class="card-title">
+							    <h4 class="card-title text-primary">
 							    	<%= product.name %>
 							    </h4>
 							    <div class="card-text">
 							    	<p class='text-truncate'>
 							    		<%= product.description %>
 							    	</p>
-									<p>
-										<strong>Preço:</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %>
-									</p>
-									<p>
-										<strong>Status:</strong> <%= product.is_active ? "Ativo" : "Inativo" %>
-									</p>
-									<p class='text-truncate'>
-										<strong>Variações:</strong>
+									<div>
+										<strong class='text-primary'>Variações: (<%= product.product_variants.size %>)</strong>
+									</div>
+									<p class='line-clamp-3'>
 										<% product.product_variants.each do |product_variant| %>
-											<%= product_variant.name %>;
+											<strong><%= product_variant.name %> -</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %> |
 										<% end %>
 									</p>
+									<p>
+										<strong class='text-primary'>Status:</strong> <%= product.is_active ? "Ativo" : "Inativo" %>
+									</p>
 							    </div>
-							    <div class="d-flex justify-content-center">
+							    <div class="d-flex justify-content-around">
 									<%= link_to 'Editar', edit_admin_store_product_path(@store, product), class: 'btn btn-secondary' %>
 							    </div>
 							 </div>
