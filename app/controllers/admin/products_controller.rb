@@ -1,5 +1,5 @@
 module Admin
-  class ProductsController < ApplicationController
+  class ProductsController < AdminController
     before_action :set_store, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_product, only: [:edit, :update, :destroy]
 

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if current_user.admin?
-      redirect_to [:admin]
+      return redirect_to [:admin]
     end
 
     @catalogue = current_user.catalogue || Catalogue.create_default(current_user)

@@ -1,5 +1,5 @@
 module Admin
-  class StoresController < ApplicationController
+  class StoresController < AdminController
     before_action :set_store, only: [:edit, :update]
     
     def new
