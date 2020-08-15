@@ -1,6 +1,5 @@
 module Admin
   class ProductsController < AdminController
-    before_action :set_store, only: [:new, :create, :edit, :update, :destroy]
     before_action :set_product, only: [:edit, :update, :destroy]
 
     def new
@@ -44,10 +43,6 @@ module Admin
 
     def product_params
       params.require(:product).permit(:name, :description, :is_active, :photo, variants: [[:name, :price, :id]])
-    end
-
-    def set_store
-      @store = Store.find(params[:store_id])
     end
 
     def set_product

@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
-  before_action :validates_admin
+  before_action :check_permission
+  before_action :set_store
 
   def index
     @products = @store.products
@@ -7,10 +8,12 @@ class AdminController < ApplicationController
 
   private
 
-  def validates_admin
-    return redirect_to users_path unless current_user.admin?
-    
+  def set_store
     @store = current_user.store
-    return redirect_to new_admin_store_path if @store.blank?
+    redirect_to new_admin_store_path if @store.blank?
+  end
+
+  def check_permission
+    return redirect_to users_path unless current_user.admin?
   end
 end
