@@ -1,11 +1,14 @@
 <%= f.input :name,
             required: true,
-            autofocus: true %>
+            autofocus: true,
+            placeholder: 'Nome da sua loja. Ex: Roupas Curitiba' %>
 <%= f.input :description,
             required: true,
             autofocus: true,
-            as: :text %>
+            as: :text,
+            placeholder: 'Descreva a sua loja. Ex: Vendemos roupas femininas' %>
 <%= f.input :terms,
             required: true,
-            as: :text %>
+            as: :text,
+            placeholder: 'Escreva aqui os termos e condições para revenda do produto. Ex: Só faço entregas a partir de R$200,00' %>
 

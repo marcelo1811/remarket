@@ -5,8 +5,10 @@
 <%= f.input :photo, as: :file %>
 <%= f.input :name,
             required: true,
-            autofocus: true %>
+            autofocus: true,
+            placeholder: 'Ex: Boneco artesanal' %>
 <%= f.input :description,
             required: true,
             autofocus: true,
-            as: :text %>
+            as: :text,
+            placeholder: 'Ex: Feito de argila, dimensões 20x20cm' %>
