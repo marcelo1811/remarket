@@ -4,7 +4,7 @@
 	<div class="row mt-3">
 		<% if @store.is_subscribed(current_user) %>
 			<div class="col-sm-12">
-				<p><strong class="text-primary">Você já é revendedor</strong></p>
+				<p class="text-warning">Você já é revendedor</p>
 			</div>
 			<div class="col-sm-12 d-flex">
 				<%= link_to 'Deixar de ser revendedor', store_unsubscribe_from_store_path(@store),

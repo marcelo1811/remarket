@@ -28,7 +28,7 @@
     <div class="form-actions d-flex justify-content-between my-4">
   		<%= link_to 'Voltar', @store, class: 'btn btn-outline-primary' %>
   		<% if @store.is_subscribed(current_user) %>
-			<p>Você já é revendedor</p>
+			<p class='text-warning'>Você já é revendedor</p>
 		<% else %>
 	  		<%= link_to 'Tornar-se revendedor', store_terms_path(@store), class: 'btn btn-primary' %>
 		<% end %>

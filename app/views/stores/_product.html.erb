@@ -24,7 +24,7 @@
 			    </div>
 			    <div class="d-flex justify-content-around">
 			    	<% if @store.is_subscribed(current_user) %>
-						<p>Você já é revendedor</p>
+						<p class='text-warning'>Você já é revendedor</p>
 					<% else %>
 		    			<%= link_to 'Revender', store_terms_path(@store), class: 'btn btn-outline-secondary' %>
 					<% end %>

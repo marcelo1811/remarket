@@ -32,7 +32,7 @@
 		    		<%= store.description %>
 		    	</p>
 		    	<p><strong class="text-primary">Produtos: </strong> <%= store.products.active.size %></p>
-		    	<p><strong class="text-primary">Status: </strong> <%= store.is_subscribed(current_user) ? 'Já é revendedor' : 'Ainda não é revendedor' %></p>
+	    		<%= '<p class="text-warning">Você á é revendedor</p>'.html_safe if store.is_subscribed(current_user) %>
 		    </div>
 		    <div class="d-flex justify-content-center">
 				<%= link_to 'Ver catálogo', store_path(store), class: 'btn btn-primary' %>
