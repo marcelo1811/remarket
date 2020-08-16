@@ -14,7 +14,9 @@
 	</div>
 
 	<% if @product_catalogues.present? %>
-		<%= render partial: "product_catalogue", collection: @catalogue.product_catalogues.is_available_by_provider %>
+		<div class="row">
+			<%= render partial: "product_catalogue", collection: @catalogue.product_catalogues.is_available_by_provider %>
+		</div>
 	<% else %>
 		<div class='mt-5'>
 			<h5>Você ainda não possui nenhum produto. <%= link_to 'Clique aqui', stores_path %> para buscar novos produtos</h5>

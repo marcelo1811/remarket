@@ -17,6 +17,8 @@ class Product < ApplicationRecord
   after_save :create_product_variants
   after_create :create_product_catalogue
 
+  scope :active, -> { where(is_active: true) }
+
   def variants_for_form(variants=nil)
     # admin/products#create && admin/products#update
     return variants if product_variants.blank? if variants.present?
