@@ -1,27 +1,47 @@
-<h2>Editar produto</h2>
-
-<h2>Nome</h2>
-<p><%= @product_catalogue.product.name %></p>
-
-<h3>Descrição</h3>
-<p><%= @product_catalogue.product.description %></p>
-
-<h3>Variação</h3>
-<% @product_catalogue.product.product_variants.each do |variant| %>
-	<p><%= variant.name %> - <%= variant.price %></p>
-<% end %>
-
 <%= simple_form_for([@catalogue, @product_catalogue]) do |f| %>
   <%= f.error_notification %>
+  <div class="container my-3">
+    <h3 class='text-primary'><%= @product_catalogue.product.name %></h3>
 
-  <div class="form-inputs">
-    <%= f.input :margin,
-	            required: true,
-	            autofocus: true %>
-  	<%= f.input :is_active, as: :boolean %>
-  </div>
-  
-  <div class="form-actions">
-    <%= f.button :submit, "Atualizar" %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="col-sm-6">
+        <h5 class='text-primary'><strong>Fornecedor</strong></h5>
+        <p><%= @product_catalogue.product.store.name %>. <%= link_to 'Ver loja', @product_catalogue.product.store %></p>
+
+        <h5 class='text-primary'><strong>Descrição</strong></h5>
+        <p><%= @product_catalogue.product.description %></p>
+
+        <h5 class='text-primary'><strong>Variações</strong></h5>
+        <% @product_catalogue.product.product_variants.each do |variant| %>
+        	<div>
+            <p>
+              <strong><%= variant.name %></strong>
+            </p>
+            <p>
+              Preço de custo: <%= number_to_currency(variant.price, unit: "R$", separator: ",", delimiter: "") %>
+            </p>
+            <p>
+              Preço para revenda: <%= number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "") %>
+            </p>
+          </div>
+        <% end %>
+        <div class="form-inputs">
+          <%= f.input :margin,
+      	            required: true,
+      	            autofocus: true,
+                    label: 'Sua margem de lucro',
+                    :label_html => { :class => "text-primary" },
+                    placeholder: 'Ex: 200,00',
+                    hint: 'Quanto você gostaria de ganhar por revenda. Ex: 200,00' %>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions d-flex justify-content-between my-4">
+      <%= link_to 'Voltar', :users, class: 'btn btn-outline-primary' %>
+      <%= f.button :submit, "Atualizar", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
