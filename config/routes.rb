@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :products, only: [:show]
     resources :catalogues, only: [:create]
     post 'subscribe_to_store', to: 'catalogues#subscribe_to_store', as: :subscribe_to_store
+    post 'unsubscribe_from_store', to: 'catalogues#unsubscribe_from_store', as: :unsubscribe_from_store
   end
 
   resources :catalogues, only: [:show] do

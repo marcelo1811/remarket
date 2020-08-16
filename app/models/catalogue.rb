@@ -16,6 +16,10 @@ class Catalogue < ApplicationRecord
     end
   end
 
+  def unsubscribe_from_store(store)
+    ProductCatalogue.includes(:product).where(products: { store: store }).destroy_all
+  end
+
   def self.create_default(user)
     Catalogue.create!(user: user, name: user.slug)
   end

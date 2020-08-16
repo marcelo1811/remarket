@@ -1,15 +1,29 @@
-<h1><%= @store.name %></h1>
-
-<% if @store.is_subscribed(current_user) %>
-	<p>Você já é revendedor</p>
-<% else %>
-	<%= link_to 'Quero ser revendedor', store_terms_path(@store) %>
-<% end %>
-
-<% @store.products.each do |product| %>
-	<div>
-		<%= link_to store_product_path(product.store, product) do %>
-			<%= product.name %>
+<div class='jumbotron jumbotron-fluid"'>
+	<h3 class='text-primary'><%= @store.name %></h3>
+	<p><%= @store.description %></p>
+	<div class="row mt-3">
+		<% if @store.is_subscribed(current_user) %>
+			<div class="col-sm-12">
+				<p><strong class="text-primary">Você já é revendedor</strong></p>
+			</div>
+			<div class="col-sm-12 d-flex">
+				<%= link_to 'Deixar de ser revendedor', store_unsubscribe_from_store_path(@store),
+				class: 'btn btn-outline-danger flex-grow-1',
+				method: :post,
+				data: { confirm: "Tem certeza que deseja deixar de ser revendedor da #{@store.name}? Os produtos dela deixaram de aparecer no seu catálogo" } %>
+			</div>
+		<% else %>
+			<div class="col-sm-12 d-flex">
+				<%= link_to 'Quero ser revendedor', store_terms_path(@store), class: 'btn btn-primary flex-grow-1' %>
+			</div>
 		<% end %>
+		<div class="col-sm-12 d-flex mt-3">
+			<%= link_to 'Voltar para fornecedores', :stores, class: 'btn btn-outline-primary flex-grow-1' %>
+		</div>
 	</div>
-<% end %>
+</div>
+<div class="container">
+	<div class="row">
+		<%= render partial: 'product', collection: @store.products.active %>
+	</div>
+</div>

@@ -1,15 +1,36 @@
-<h1><%= @store.name %></h1>
+<div class="container my-3">
+    <h3 class='text-primary'><%= @product.name %></h3>
 
+    <div class="row">
+      <div class="col-sm-6">
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+      </div>
+      <div class="col-sm-6">
+        <h5 class='text-primary'><strong>Fornecedor</strong></h5>
+        <p><%= @product.store.name %></p>
 
-<h2>Nome</h2>
-<p><%= @product.name %></p>
+        <h5 class='text-primary'><strong>Descrição</strong></h5>
+        <p><%= @product.description %></p>
 
-<h3>Descrição</h3>
-<p><%= @product.description %></p>
-
-<h3>Variação</h3>
-<% @product.product_variants.each do |variant| %>
-	<p><%= variant.name %> - <%= variant.price %></p>
-<% end %>
-
-<%= link_to 'Voltar para catálogo', @store %>
+        <h5 class='text-primary'><strong>Variações</strong></h5>
+        <% @product.product_variants.each do |variant| %>
+        	<div>
+            <p>
+              <strong><%= variant.name %></strong>
+            </p>
+            <p>
+              Preço de custo: <%= number_to_currency(variant.price, unit: "R$", separator: ",", delimiter: "") %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-actions d-flex justify-content-between my-4">
+  		<%= link_to 'Voltar', @store, class: 'btn btn-outline-primary' %>
+  		<% if @store.is_subscribed(current_user) %>
+			<p>Você já é revendedor</p>
+		<% else %>
+	  		<%= link_to 'Tornar-se revendedor', store_terms_path(@store), class: 'btn btn-primary' %>
+		<% end %>
+    </div>
+</div>
