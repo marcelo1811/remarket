@@ -9,4 +9,8 @@ class ProductCatalogue < ApplicationRecord
   def cheapest_resell_price
     product.cheapest_product_variant.price + margin
   end
+
+  def resell_price(product_variant)
+    product_variant.price + margin
+  end
 end

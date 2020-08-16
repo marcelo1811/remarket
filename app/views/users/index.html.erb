@@ -1,30 +1,23 @@
-<h1><%= @catalogue.name %></h1>
-
-
-<% if @catalogue_products.present? %>
-	<% @catalogue.product_catalogues.is_available_by_provider.each do |product_catalogue| %>
+<div class="container">
+	<div class='my-3'>
 		<div>
-			<p>
-				Nome - <%= product_catalogue.product.name %>
-			</p>
-			<p>
-				Loja - <%= product_catalogue.product.store.name %>
-			</p>
-			<p>
-				Preço de custo - à partir de <%= product_catalogue.product.cheapest_product_variant.price %>
-			</p>
-			<p>
-				Preço de revenda - <%= product_catalogue.cheapest_resell_price %>
-			</p>
-			<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue) %>
+			<p><strong>Nome da loja:</strong> <%= @catalogue.name %></p>
+		</div>
+		<div class='row'>
+			<div class="col-sm-6 d-flex mt-3">
+				<%= link_to 'Buscar produtos para revenda', stores_path, class: 'btn btn-outline-primary flex-grow-1' %>
+			</div>
+			<div class="col-sm-6 d-flex mt-3">
+				<%= link_to 'Compartillhar link da loja', "https://wa.me/?text=#{catalogue_url(@catalogue)}", class: 'btn btn-primary flex-grow-1', target: '_blank' %>
+			</div>
+		</div>
+	</div>
+
+	<% if @product_catalogues.present? %>
+		<%= render partial: "product_catalogue", collection: @catalogue.product_catalogues.is_available_by_provider %>
+	<% else %>
+		<div class='mt-5'>
+			<h5>Você ainda não possui nenhum produto. <%= link_to 'Clique aqui', stores_path %> para buscar novos produtos</h5>
 		</div>
 	<% end %>
-<% else %>
-	<div>
-		<h3>Você ainda não possui nenhum produto</h3>
-	</div>
-<% end %>
-
-<div>
-	<%= link_to 'Buscar fornecedores', stores_path %>
 </div>
