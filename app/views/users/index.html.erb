@@ -15,7 +15,7 @@
 
 	<% if @product_catalogues.present? %>
 		<div class="row">
-			<%= render partial: "product_catalogue", collection: @catalogue.product_catalogues.is_available_by_provider %>
+			<%= render partial: "product_catalogue", collection: @product_catalogues %>
 		</div>
 	<% else %>
 		<div class='mt-5'>

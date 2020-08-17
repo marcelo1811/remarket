@@ -7,7 +7,16 @@
 
 			 <div class="card-body">
 			    <h4 class="card-title text-primary">
-			    	<%= product_catalogue.product.name %>
+			    	<p>
+			    		<%= product_catalogue.product.name %> 
+			    	</p>
+			    	<p>
+			    		<% if product_catalogue.margin.positive? %>
+			    			<span class="badge badge-success">Vendendo</span>
+			    		<% else %>
+			    			<span class="badge badge-danger">Lucro zero</span>
+			    		<% end %>
+			    	</p>
 			    </h4>
 			    <div class="card-text">
 			    	<p class='text-truncate'>

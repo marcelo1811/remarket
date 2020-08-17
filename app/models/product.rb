@@ -59,7 +59,7 @@ class Product < ApplicationRecord
   end
 
   def create_product_catalogue
-    catalogue_ids = ProductCatalogue.includes(:product).where(products: { store_id: store.id }).pluck(:catalogue_id)
+    catalogue_ids = ProductCatalogue.includes(:product).where(products: { store_id: store.id }).pluck(:catalogue_id).uniq
 
     catalogue_ids.each do |catalogue_id|
       ProductCatalogue.create!(

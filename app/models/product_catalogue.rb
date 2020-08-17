@@ -4,7 +4,9 @@ class ProductCatalogue < ApplicationRecord
 
   validates :margin, presence: true
 
-  scope :is_available_by_provider, -> { includes(:product).where(products: { is_active: true }) }
+  scope :available_by_provider, -> { includes(:product).where(products: { is_active: true }) }
+  scope :without_margin, -> { where(margin: 0) }
+  scope :with_margin, -> { where.not(margin: 0) }
 
   def cheapest_resell_price
     product.cheapest_product_variant.price + margin

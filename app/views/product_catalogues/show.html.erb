@@ -1,16 +1,29 @@
-<h1><%= @product_catalogue.product.name %></h1>
+<div class="container my-3">
+	<h3 class='text-primary'><%= @product_catalogue.product.name %></h3>
 
-<h3>Descrição</h3>
-<p><%= @product_catalogue.product.description %></p>
+	<div class="row">
+	  <div class="col-sm-6">
+	    <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :fill %>
+	  </div>
+	  <div class="col-sm-6">
+	    <h5 class='text-primary'><strong>Descrição</strong></h5>
+	    <p><%= @product_catalogue.product.description %></p>
 
-<h3>Preços</h3>
-
-<% @product_catalogue.product.product_variants.each do |product_variant| %>
-	<div>
-		<%= product_variant.name %> - <%= product_variant.resell_price(@product_catalogue) %>
+	    <h5 class='text-primary'><strong>Variações</strong></h5>
+	    <ul>
+		    <% @product_catalogue.product.product_variants.each do |variant| %>
+		    	<div>
+			        <li>
+			          <strong><%= variant.name %></strong> - <%= number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "") %>
+			        </li>
+		      </div>
+		    <% end %>
+	    	
+	    </ul>
+	  </div>
 	</div>
-<% end %>
-
-<div>
-	<%= link_to 'Pedir ao vendedor', "https://wa.me/554192216979?text=Olá%20tenho%20interesse%20neste%20produto%20#{request.original_url}", target: "_blank" %>
+	<div class="form-actions d-flex justify-content-between my-4">
+	  <%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
+	  <%= link_to "Pedir no whats", "https://wa.me/?text=Olá, tenho interesse nesse produto -> #{catalogue_product_catalogue_url(@catalogue, @product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
+	</div>
 </div>

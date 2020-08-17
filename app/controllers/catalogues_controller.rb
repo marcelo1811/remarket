@@ -19,7 +19,7 @@ class CataloguesController < ApplicationController
   end
 
   def show
-    @product_catalogues = @catalogue.product_catalogues
+    @product_catalogues = @catalogue.product_catalogues.available_by_provider.with_margin
   end
 
   private
