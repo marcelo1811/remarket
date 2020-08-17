@@ -6,6 +6,7 @@ class Store < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   validates :terms, presence: true
+  validates :whatsapp_number, presence: true
 
   def is_subscribed(user)
     catalogue = user.catalogue

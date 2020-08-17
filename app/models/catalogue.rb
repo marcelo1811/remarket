@@ -4,6 +4,7 @@ class Catalogue < ApplicationRecord
   has_many :product_catalogues
 
   validates :name, presence: true
+  validates :whatsapp_number, presence: true
 
   def subscribe_to_store(store)
     store.products.each do |product|

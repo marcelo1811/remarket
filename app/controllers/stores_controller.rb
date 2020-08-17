@@ -13,10 +13,6 @@ class StoresController < ApplicationController
 
   private
 
-  def store_params
-    params.require(:store).permit(:name, :description, :terms)
-  end
-
   def set_store
     @store = Store.find(params[:id])
   end

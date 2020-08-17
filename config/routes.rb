@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     post 'unsubscribe_from_store', to: 'catalogues#unsubscribe_from_store', as: :unsubscribe_from_store
   end
 
-  resources :catalogues, only: [:show] do
+  resources :catalogues, only: [:show, :edit, :update, :new, :create] do
     resources :product_catalogues, only: [:edit, :update, :show]
   end
   
