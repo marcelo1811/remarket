@@ -31,7 +31,7 @@
 	  <div class="form-actions">
 	  	<div class="d-flex justify-content-between my-4">
 	  		<%= link_to 'Voltar', :admin, class: 'btn btn-outline-primary' %>
-	    	<%= f.button :submit, "Atualizar", class: 'btn btn-primary' %>
+	    	<%= f.button :submit, "Atualizar", class: 'btn btn-primary', data: { disable_with: "Atualizando produto..." } %>
 	    	<%= link_to 'Exluir', admin_store_product_path(@store, @product),
 				method: :delete,
 				data: { confirm: 'Tem certeza que deseja deletar este produto?' },

@@ -1,29 +1,25 @@
-<div class="container my-3">
-	<h3 class='text-primary'><%= @product_catalogue.product.name %></h3>
+<%= simple_form_for @product_catalogue, url: order_on_whats_path(@product_catalogue), method: :post  do |f| %>
+	<div class="container my-3">
+		<h3 class='text-primary'><%= @product_catalogue.product.name %></h3>
 
-	<div class="row">
-	  <div class="col-sm-6">
-	    <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :fill %>
-	  </div>
-	  <div class="col-sm-6">
-	    <h5 class='text-primary'><strong>Descrição</strong></h5>
-	    <p><%= @product_catalogue.product.description %></p>
+		<div class="row">
+		  <div class="col-sm-6">
+		    <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :fill %>
+		  </div>
+		  <div class="col-sm-6">
+		    <h5 class='text-primary'><strong>Descrição</strong></h5>
+		    <p><%= @product_catalogue.product.description %></p>
 
-	    <h5 class='text-primary'><strong>Variações</strong></h5>
-	    <ul>
-		    <% @product_catalogue.product.product_variants.each do |variant| %>
-		    	<div>
-			        <li>
-			          <strong><%= variant.name %></strong> - <%= number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "") %>
-			        </li>
-		      </div>
-		    <% end %>
-	    	
-	    </ul>
-	  </div>
+		    <h5 class='text-primary'><strong>Variações</strong></h5>
+		    <%= f.input :product_variant_id, collection: @product_catalogue.product.product_variants.map { |variant| ["<strong>#{variant.name}</strong> - #{number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "")}".html_safe, variant.id] }, as: :radio_buttons, label: '', checked: @product_catalogue.product.product_variants.first.id %>
+
+		    <%= f.input :quantity, collection: 1..5, selected: 1, label: 'Quantidade' %>
+		  </div>
+		</div>
+		<div class="form-actions d-flex justify-content-between my-4">
+		 	<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
+		 	<%#= link_to "Pedir no whats", "https://wa.me/?text=Olá, tenho interesse nesse produto -> #{catalogue_product_catalogue_url(@catalogue, @product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
+      		<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+		</div>
 	</div>
-	<div class="form-actions d-flex justify-content-between my-4">
-	  <%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
-	  <%= link_to "Pedir no whats", "https://wa.me/?text=Olá, tenho interesse nesse produto -> #{catalogue_product_catalogue_url(@catalogue, @product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
-	</div>
-</div>
+<% end %>

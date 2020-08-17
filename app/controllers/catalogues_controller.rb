@@ -1,6 +1,7 @@
 class CataloguesController < ApplicationController
   before_action :set_store, only: [:subscribe_to_store, :unsubscribe_from_store]
   before_action :set_catalogue, only: [:show]
+  skip_before_action :authenticate_user!, only: [ :show ]
 
   def subscribe_to_store
     catalogue = current_user.catalogue

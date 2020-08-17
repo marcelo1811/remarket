@@ -6,21 +6,32 @@
 			<% end %>
 
 			 <div class="card-body">
+			 	<div>
+		    		<% if product_catalogue.margin.positive? %>
+		    			<span class="badge badge-success">Vendendo</span>
+		    		<% else %>
+		    			<span class="badge badge-danger">Lucro zero</span>
+		    		<% end %>
+		    		<% if Date.today - 5.days < product_catalogue.product.created_at %>
+		    			<span class="badge badge-warning">Produto novo</span>
+		    		<% end %>
+			 	</div>
 			    <h4 class="card-title text-primary">
 			    	<p>
 			    		<%= product_catalogue.product.name %> 
 			    	</p>
 			    	<p>
-			    		<% if product_catalogue.margin.positive? %>
-			    			<span class="badge badge-success">Vendendo</span>
-			    		<% else %>
-			    			<span class="badge badge-danger">Lucro zero</span>
-			    		<% end %>
 			    	</p>
 			    </h4>
 			    <div class="card-text">
 			    	<p class='text-truncate'>
 			    		<%= product_catalogue.product.description %>
+			    	</p>
+			    	<div>
+			    		<strong class='text-primary'>Fornecedor:</strong>
+			    	</div>
+			    	<p>
+			    		<%= product_catalogue.product.store.name %>. <%= link_to 'Ver loja', product_catalogue.product.store %>
 			    	</p>
 					<div>
 						<strong class='text-primary'>Variações: (<%= product_catalogue.product.product_variants.size %>)</strong>
@@ -35,8 +46,12 @@
 					</p>
 			    </div>
 			    <div class="d-flex justify-content-around">
-					<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-secondary'%>
-			    	<%= link_to'Compartilhar', "https://wa.me/?text=#{catalogue_product_catalogue_url(@catalogue, product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
+			    	<% if product_catalogue.margin.positive? %>
+						<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-secondary'%>
+				    	<%= link_to'Compartilhar', "https://wa.me/?text=#{catalogue_product_catalogue_url(@catalogue, product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
+		    		<% else %>
+						<%= link_to 'Adicione sua margem de lucro', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-danger'%>
+		    		<% end %>
 			    </div>
 			 </div>
 		</div>

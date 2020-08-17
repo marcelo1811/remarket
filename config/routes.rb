@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :catalogues, only: [:show] do
     resources :product_catalogues, only: [:edit, :update, :show]
   end
+  
+  post 'product_catalogues/:id/order_on_whats', to: 'product_catalogues#order_on_whats', as: :order_on_whats
 end

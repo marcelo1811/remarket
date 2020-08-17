@@ -1,4 +1,6 @@
 class ProductCatalogue < ApplicationRecord
+  attr_accessor :product_variant_id, :quantity
+
   belongs_to :product
   belongs_to :catalogue
 
