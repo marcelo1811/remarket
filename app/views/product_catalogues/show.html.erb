@@ -1,3 +1,12 @@
+<% content_for :head do %>
+	<title><%= @catalogue.name %></title>
+    <meta name="description" content="Compartilhe catálogos de produtos">
+    <meta property="og:title" content="<%= @product_catalogue.product.name %>" />
+    <meta property="og:url" content="https://www.example.com/webpage/" />
+    <meta property="og:description" content="<%= @product_catalogue.product.description %>">
+    <meta property="og:image" content="<%= cl_image_path @product_catalogue.product.photo.key, height: 630, width: 1200, crop: :fill %>">
+<% end %>
+
 <%= simple_form_for @product_catalogue, url: order_on_whats_path(@product_catalogue), method: :post  do |f| %>
 	<div class="container my-3">
 		<h3 class='text-primary'><%= @product_catalogue.product.name %></h3>

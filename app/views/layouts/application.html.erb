@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Remartket</title>
+    <!-- 
+    <title>Remarket</title>
+    <meta name="description" content="description of your website/webpage, make sure you use keywords!">
+    <meta property="og:title" content="short title of your website/webpage" />
+    <meta property="og:url" content="https://www.example.com/webpage/" />
+    <meta property="og:description" content="description of your website/webpage">
+    <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png">
+ -->
+
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% else %>
+      <title>Remarket</title>
+      <meta name="description" content="Plataforma de revenda. Ganhe dinheiro online. Trabalhe de casa.">
+      <meta property="og:title" content="Remarket" />
+      <meta property="og:url" content="http://remarket-mvp.herokuapp.com/" />
+      <meta property="og:description" content="Plataforma de revenda. Ganhe dinheiro online. Trabalhe de casa.">
+      <!-- <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png"> -->
+    <% end %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
