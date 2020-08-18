@@ -6,7 +6,7 @@
 		</div>
 		<div class="col-sm-4 d-flex mt-3">
 			<% if @store.products.size.positive? %>
-				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=Olá, seja meu revendedor da #{@store.name} e escolha seu próprio lucro. Basta se cadastrar nesse link -> #{new_user_registration_url}?invite_code=#{@store.id}", class: 'btn btn-outline-primary flex-grow-1' %>
+				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=Olá, seja meu revendedor da #{@store.name} e escolha seu próprio lucro. Basta se cadastrar nesse link -> #{new_user_registration_url}?invite_code=#{@store.id}", class: 'btn btn-outline-primary flex-grow-1', target: '_blank' %>
 			<% else %>
 				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, :admin, data: { confirm: 'Crie um produto para poder convidar revendedores.' }, class: 'btn btn-outline-primary flex-grow-1' %>
 			<% end %>
