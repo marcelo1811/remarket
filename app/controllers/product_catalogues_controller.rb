@@ -1,7 +1,7 @@
 class ProductCataloguesController < ApplicationController
   before_action :set_product_catalogue, only: [:edit, :update, :show, :order_on_whats]
   before_action :set_catalogue, only: [:edit, :update, :show]
-  skip_before_action :authenticate_user!, only: [ :show ]
+  skip_before_action :authenticate_user!, only: [ :show, :order_on_whats ]
 
   def edit; end
 
@@ -21,7 +21,7 @@ class ProductCataloguesController < ApplicationController
     quantity = params[:product_catalogue][:quantity]
     product = @product_catalogue.product
     product_variant = ProductVariant.find(params[:product_catalogue][:product_variant_id])
-    redirect_to "https://wa.me/#{product_catalogue.catalogue.whatsapp_number}?text=Olá, tenho interesse em #{quantity} unidades de #{product.name}, #{product_variant.name} -> link #{catalogue_product_catalogue_url(@product_catalogue.catalogue, @product_catalogue)}"
+    redirect_to "https://wa.me/#{@product_catalogue.catalogue.whatsapp_number}?text=Olá, tenho interesse em #{quantity} unidades de #{product.name}, #{product_variant.name} -> link #{catalogue_product_catalogue_url(@product_catalogue.catalogue, @product_catalogue)}"
   end
 
   private
