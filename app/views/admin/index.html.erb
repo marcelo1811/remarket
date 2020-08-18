@@ -32,6 +32,13 @@
 							<% end %>
 
 							 <div class="card-body">
+			 				 	<div>
+						    		<% if product.is_active? %>
+						    			<span class="badge badge-success">Vendendo</span>
+						    		<% else %>
+						    			<span class="badge badge-danger">Inativo</span>
+						    		<% end %>
+							 	</div>
 							    <h4 class="card-title text-primary">
 							    	<%= product.name %>
 							    </h4>
@@ -46,9 +53,6 @@
 										<% product.product_variants.each do |product_variant| %>
 											<strong><%= product_variant.name %> -</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %>; 
 										<% end %>
-									</p>
-									<p>
-										<strong class='text-primary'>Status:</strong> <%= product.is_active ? "Ativo" : "Inativo" %>
 									</p>
 							    </div>
 							    <div class="d-flex justify-content-around">
