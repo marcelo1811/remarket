@@ -14,9 +14,13 @@
         <li class="nav-item active">
           <%= link_to "Minha loja", users_path, class: "nav-link" %>
         </li>
-        <li class="nav-item active">
-          <%= link_to "Configurações", current_user.admin? ? edit_admin_store_path(current_user.store) : edit_catalogue_path(current_user.catalogue), class: "nav-link" %>
-        </li>
+        
+        <% if (current_user.store.present? || current_user.catalogue.present?) %>
+          <li class="nav-item active">
+            <%= link_to "Configurações", current_user.admin? ? edit_admin_store_path(current_user.store) : edit_catalogue_path(current_user.catalogue), class: "nav-link" %>
+          </li>
+        <% end %>
+        
         <li class="nav-item active">
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
         </li>

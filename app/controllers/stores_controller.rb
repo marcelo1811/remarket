@@ -6,7 +6,8 @@ class StoresController < ApplicationController
   end
 
   def index
-    @stores = Store.all
+    active_store_ids = Product.where(is_active: true).pluck(:store_id)
+    @stores = Store.where(id: active_store_ids)
   end
 
   def terms; end

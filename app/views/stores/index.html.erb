@@ -9,6 +9,12 @@
 </div>
 <div class="container my-3">
 	<div class="row justify-content-center">
-		<%= render partial: 'store', collection: @stores %>
+		<% if @stores.present? %>
+			<%= render partial: 'store', collection: @stores %>
+		<% else %>
+			<div class='mt-5'>
+				<h5>Ainda não há nenhum fornecedor na sua região.</h5>
+			</div>
+		<% end %>
 	</div>
 </div>
