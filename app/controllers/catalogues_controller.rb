@@ -55,7 +55,7 @@ class CataloguesController < ApplicationController
   private
 
   def catalogue_params
-    params.require(:catalogue).permit(:name, :whatsapp_number)
+    params.require(:catalogue).permit(:name, :whatsapp_number, :whatsapp_ddd)
   end
 
   def set_store

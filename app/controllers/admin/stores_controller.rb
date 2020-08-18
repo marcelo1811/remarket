@@ -31,7 +31,7 @@ module Admin
     private
 
     def store_params
-      params.require(:store).permit(:name, :description, :terms, :whatsapp_number)
+      params.require(:store).permit(:name, :description, :terms, :whatsapp_number, :whatsapp_ddd)
     end
   end
 end

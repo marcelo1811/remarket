@@ -18,7 +18,7 @@
 			</div>
 		<% end %>
 		<div class="col-sm-12 d-flex mt-3">
-			<%= link_to 'Enviar mensagem <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/55#{@store.whatsapp_number}", class: 'btn btn-primary flex-grow-1' %>
+			<%= link_to 'Enviar mensagem <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{@store.whatsapp_complete}", class: 'btn btn-primary flex-grow-1' %>
 		</div>
 		<div class="col-sm-12 d-flex mt-3">
 			<%= link_to 'Meus produtos', :users, class: 'btn btn-outline-primary flex-grow-1' %>

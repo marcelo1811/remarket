@@ -2,12 +2,21 @@
             required: true,
             autofocus: true,
             placeholder: 'Nome da sua loja. Ex: Roupas Curitiba' %>
-<%= f.input :whatsapp_number,
-            required: true,
-            autofocus: true,
-            placeholder: '(41) 99999-9999',
-            :data=> {:mask=> '999.999.999.9999'},
-            hint: 'Os revendedores entrarão em contato por esse número' %>
+<div class="row">
+      <div class="col-3">
+            <%= f.input :whatsapp_ddd,
+                        required: true,
+                        autofocus: true,
+                        placeholder: '41',
+                        label: 'ddd' %>
+      </div>
+      <div class="col-9">
+            <%= f.input :whatsapp_number,
+                        required: true,
+                        autofocus: true,
+                        placeholder: '999999999' %>
+      </div>
+</div>
 <%= f.input :description,
             required: true,
             autofocus: true,
