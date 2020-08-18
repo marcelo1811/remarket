@@ -23,6 +23,6 @@ class User < ApplicationRecord
   private
 
   def check_invite_code
-    update(admin: true) if invite_code == 'souadmin'
+    update(admin: true) if invite_code == 'admin'
   end
 end

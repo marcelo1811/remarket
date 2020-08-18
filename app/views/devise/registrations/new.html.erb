@@ -39,7 +39,8 @@
         </div>
         <%= f.input :invite_code,
                     required: false,
-                    hint: 'Caso você possua algum convite. Digite o código aqui.' %>
+                    as: :hidden,
+                    value: params[:invite_code] %>
       </div>
 
       <div class="form-actions">
