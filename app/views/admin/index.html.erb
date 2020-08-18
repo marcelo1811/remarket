@@ -34,9 +34,9 @@
 									<div>
 										<strong class='text-primary'>Variações: (<%= product.product_variants.size %>)</strong>
 									</div>
-									<p class='line-clamp-3'>
+									<p class='text-truncate'>
 										<% product.product_variants.each do |product_variant| %>
-											<strong><%= product_variant.name %> -</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %> |
+											<strong><%= product_variant.name %> -</strong> <%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %>; 
 										<% end %>
 									</p>
 									<p>

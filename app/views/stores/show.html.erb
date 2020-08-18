@@ -7,7 +7,7 @@
 				<p class="text-warning">Você já é revendedor</p>
 			</div>
 			<div class="col-sm-12 d-flex">
-				<%= link_to 'Deixar de ser revendedor', store_unsubscribe_from_store_path(@store),
+				<%#= link_to 'Deixar de ser revendedor', store_unsubscribe_from_store_path(@store),
 				class: 'btn btn-outline-danger flex-grow-1',
 				method: :post,
 				data: { confirm: "Tem certeza que deseja deixar de ser revendedor da #{@store.name}? Os produtos dela deixaram de aparecer no seu catálogo" } %>
@@ -18,7 +18,10 @@
 			</div>
 		<% end %>
 		<div class="col-sm-12 d-flex mt-3">
-			<%= link_to 'Voltar para fornecedores', :stores, class: 'btn btn-outline-primary flex-grow-1' %>
+			<%= link_to 'Enviar mensagem <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/55#{@store.whatsapp_number}", class: 'btn btn-primary flex-grow-1' %>
+		</div>
+		<div class="col-sm-12 d-flex mt-3">
+			<%= link_to 'Meus produtos', :users, class: 'btn btn-outline-primary flex-grow-1' %>
 		</div>
 	</div>
 </div>

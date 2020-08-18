@@ -59,7 +59,7 @@ class ProductVariationsInput extends React.Component {
 								<Form.Group>
 									<Form.Label>Preço</Form.Label>
 									<Form.Control
-										type='text'
+										type='number'
 										placeholder='ex: 10,00'
 										name='product[variants][][price]'
 										value={variant.price}
