@@ -40,7 +40,8 @@
         <%= f.input :invite_code,
                     required: false,
                     as: :hidden,
-                    value: params[:invite_code] %>
+                    input_html: { value: params[:invite_code] || cookies[:invite_code] } %>
+
       </div>
 
       <div class="form-actions">
