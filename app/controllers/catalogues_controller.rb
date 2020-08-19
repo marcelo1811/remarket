@@ -35,7 +35,8 @@ class CataloguesController < ApplicationController
       
       store = Store.find_by(id: cookies[:invite_code])
       @catalogue.subscribe_to_store(store) if store.present?
-
+      cookies.delete(:invite_code)
+      
       redirect_to :users
     else
       render 'new'

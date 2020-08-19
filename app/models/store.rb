@@ -11,7 +11,7 @@ class Store < ApplicationRecord
 
   def is_subscribed(user)
     catalogue = user.catalogue
-    ProductCatalogue.joins(:product).where(catalogue_id: catalogue.id, products: { store_id: self.id }).present?
+    CatalogueStore.find_by(catalogue_id: catalogue.id, store_id: self.id)
   end
 
   def whatsapp_complete

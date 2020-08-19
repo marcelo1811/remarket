@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_150913) do
+ActiveRecord::Schema.define(version: 2020_08_19_022844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2020_08_18_150913) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "catalogue_stores", force: :cascade do |t|
+    t.bigint "catalogue_id", null: false
+    t.bigint "store_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["catalogue_id"], name: "index_catalogue_stores_on_catalogue_id"
+    t.index ["store_id"], name: "index_catalogue_stores_on_store_id"
   end
 
   create_table "catalogues", force: :cascade do |t|
@@ -105,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_08_18_150913) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "catalogue_stores", "catalogues"
+  add_foreign_key "catalogue_stores", "stores"
   add_foreign_key "catalogues", "users"
   add_foreign_key "product_catalogues", "catalogues"
   add_foreign_key "product_catalogues", "products"

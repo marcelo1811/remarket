@@ -8,18 +8,14 @@ class Catalogue < ApplicationRecord
   validates :whatsapp_ddd, presence: true
 
   def subscribe_to_store(store)
-    store.products.each do |product|
-      ProductCatalogue.create!(
-        product: product,
-        catalogue: self,
-        margin: 0,
-        is_active: false
-      )
-    end
+    CatalogueStore.create(store: store, catalogue: self)
   end
 
   def unsubscribe_from_store(store)
-    ProductCatalogue.includes(:product).where(products: { store: store }).destroy_all
+    CatalogueStore.find_by(
+      store_id: store.id,
+      catalogue_id: self.id
+    ).destroy
   end
 
   def self.create_default(user)
