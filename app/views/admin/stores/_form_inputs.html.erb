@@ -8,13 +8,16 @@
                         required: true,
                         autofocus: true,
                         placeholder: '41',
-                        label: 'ddd' %>
+                        label: 'ddd',
+                        input_html: { maxlength: 2 },
+                        as: :integer %>
       </div>
       <div class="col-9">
             <%= f.input :whatsapp_number,
                         required: true,
                         autofocus: true,
-                        placeholder: '999999999' %>
+                        placeholder: '999999999',
+                        as: :integer %>
       </div>
 </div>
 <%= f.input :description,
