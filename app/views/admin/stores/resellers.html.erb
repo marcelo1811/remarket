@@ -1,0 +1,41 @@
+<div class='jumbotron jumbotron-fluid"'>
+	<div class='row'>
+		<div class="col-sm-6 d-flex mt-3">
+			<%= link_to 'Voltar', :admin, class: 'btn btn-outline-primary flex-grow-1' %>
+		</div>
+		<div class="col-sm-6 d-flex mt-3">
+			<% if @store.products.size.positive? %>
+				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=Olá, seja meu revendedor da #{@store.name} e escolha seu próprio lucro. Basta se cadastrar nesse link -> #{new_user_registration_url}?invite_code=#{@store.id}", class: 'btn btn-primary flex-grow-1', target: '_blank' %>
+			<% else %>
+				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, :admin, data: { confirm: 'Crie um produto para poder convidar revendedores.' }, class: 'btn btn-primary flex-grow-1' %>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<% if @reseller_catalogues.present? %>
+	<table class="table">
+	  <thead class="thead bg-primary text-light">
+	    <tr>
+	      <th scope="col">#</th>
+	      <th scope="col">Revendedor</th>
+	      <th scope="col">Whatsapp</th>
+	      <th scope="col">Ação</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<% @reseller_catalogues.each_with_index do |catalogue, index| %>
+		    <tr>
+		      <th scope="row"><%= index + 1%></th>
+		      <td><%= catalogue.user.full_name %></td>
+		      <td><%= catalogue.whatsapp_beauty %></td>
+		      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{catalogue.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
+		    </tr>
+	  	<% end %>
+	  </tbody>
+	</table>
+<% else %>
+	<div class="container">
+		<h1>Você ainda não possui nenhum revendedor.</h1>
+	</div>
+<% end %>

@@ -20,6 +20,10 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}".split(' ').join('-').downcase
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def check_invite_code

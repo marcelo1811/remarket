@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :stores, only: [:new, :create, :edit, :update] do
       resources :products, only: [:new, :create, :edit, :update, :destroy]
+      get 'resellers', to: 'stores#resellers', as: :resellers
     end
   end
 

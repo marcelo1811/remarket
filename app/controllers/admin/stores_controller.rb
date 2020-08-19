@@ -17,7 +17,6 @@ module Admin
       end
     end
 
-
     def edit; end
 
     def update
@@ -26,6 +25,11 @@ module Admin
       else
         render 'edit'
       end
+    end
+
+    def resellers
+      catalogue_store_ids = @store.catalogue_stores.pluck(:catalogue_id)
+      @reseller_catalogues = Catalogue.where(id: catalogue_store_ids)
     end
 
     private
