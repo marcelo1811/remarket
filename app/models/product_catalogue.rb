@@ -17,4 +17,8 @@ class ProductCatalogue < ApplicationRecord
   def resell_price(product_variant)
     product_variant.price + margin
   end
+
+  def owner?(user)
+    self.catalogue.user == user
+  end
 end

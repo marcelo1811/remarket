@@ -7,7 +7,7 @@
     <meta property="og:image" content="<%= cl_image_path @product_catalogue.product.photo.key, height: 630, width: 1200, crop: :fill %>">
 <% end %>
 
-<%= simple_form_for @product_catalogue, url: order_on_whats_path(@product_catalogue), method: :post  do |f| %>
+<%= simple_form_for @product_catalogue, url: (@product_catalogue.owner?(current_user) ? notify_supplier_path(@product_catalogue) : order_on_whats_path(@product_catalogue)), method: :post  do |f| %>
 	<div class="container my-3">
 		<h3 class='text-primary'><%= @product_catalogue.product.name %></h3>
 
@@ -20,14 +20,34 @@
 		    <p><%= @product_catalogue.product.description %></p>
 
 		    <h5 class='text-primary'><strong>Variações</strong></h5>
-		    <%= f.input :product_variant_id, collection: @product_catalogue.product.product_variants.map { |variant| ["<strong>#{variant.name}</strong> - #{number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "")}".html_safe, variant.id] }, as: :radio_buttons, label: '', checked: @product_catalogue.product.product_variants.first.id %>
+		    <%= f.input :product_variant_id,
+	    				collection: @product_catalogue.product.product_variants.map { |variant| ["<strong>#{variant.name}</strong> - #{number_to_currency(@product_catalogue.resell_price(variant), unit: "R$", separator: ",", delimiter: "")}".html_safe, variant.id] },
+	    				as: :radio_buttons,
+	    				label: '',
+	    				checked: params[:variant_id] || @product_catalogue.product.product_variants.first.id,
+	    				disabled: @product_catalogue.owner?(current_user) && params[:variant_id].present? %>
 
-		    <%= f.input :quantity, collection: 1..5, selected: 1, label: 'Quantidade' %>
+		    <%= f.input :quantity,
+		    			collection: 1..5,
+		    			selected: params[:quantity] || 1, label: 'Quantidade',
+		    			disabled: @product_catalogue.owner?(current_user) && params[:quantity].present? %>
+		    <% if @product_catalogue.owner?(current_user) %>
+				<%= f.input :product_variant_id,
+							as: :hidden,
+							input_html: { value: params[:variant_id] } %>
+				<%= f.input :quantity,
+							as: :hidden,
+							input_html: { value: params[:quantity] } %>
+		    <% end %>
 		  </div>
 		</div>
 		<div class="form-actions d-flex justify-content-between my-4">
 		 	<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
-      		<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+		 	<% if @product_catalogue.owner?(current_user) %>
+      			<%= f.button :submit, "Avisar fornecedor", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+			<% else %>
+      			<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+      		<% end %>
 		</div>
 	</div>
 <% end %>

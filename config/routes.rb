@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   end
   
   post 'product_catalogues/:id/order_on_whats', to: 'product_catalogues#order_on_whats', as: :order_on_whats
+  post 'product_catalogues/:id/notify_supplier', to: 'product_catalogues#notify_supplier', as: :notify_supplier
 end
