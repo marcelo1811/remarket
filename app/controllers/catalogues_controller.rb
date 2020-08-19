@@ -69,6 +69,6 @@ class CataloguesController < ApplicationController
   end
 
   def set_catalogue
-    @catalogue = current_user.catalogue
+    @catalogue = Catalogue.find_by(id: params[:id]) || current_user.catalogue
   end
 end
