@@ -22,7 +22,7 @@ class ProductCataloguesController < ApplicationController
     product = @product_catalogue.product
     variant_id = params[:product_catalogue][:product_variant_id]
     product_variant = ProductVariant.find(variant_id)
-    redirect_to "https://wa.me/#{@product_catalogue.catalogue.whatsapp_complete}?text=Olá, tenho interesse em #{quantity} unidades de #{product.name}, #{product_variant.name} -> link #{catalogue_product_catalogue_url(@product_catalogue.catalogue, @product_catalogue)}?quantity=#{quantity}?variant_id=#{variant_id}"
+    redirect_to "https://wa.me/#{@product_catalogue.catalogue.whatsapp_complete}?text=Olá, tenho interesse em #{quantity} unidades de #{product.name}, #{product_variant.name} -> link #{catalogue_product_catalogue_url(@product_catalogue.catalogue, @product_catalogue)}?quantity=#{quantity}&variant_id=#{variant_id}"
   end
 
   def notify_supplier
