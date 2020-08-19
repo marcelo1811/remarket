@@ -28,8 +28,8 @@ module Admin
     end
 
     def resellers
-      catalogue_store_ids = @store.catalogue_stores.pluck(:catalogue_id)
-      @reseller_catalogues = Catalogue.where(id: catalogue_store_ids)
+      catalogue_ids = @store.catalogue_stores.pluck(:catalogue_id)
+      @reseller_catalogues = Catalogue.where(id: catalogue_ids)
     end
 
     private

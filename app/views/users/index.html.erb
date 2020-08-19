@@ -4,13 +4,16 @@
 		<p><strong>Whatsapp para contato:</strong> <%= @catalogue.whatsapp_beauty %></p>
 	</div>
 	<div class='row'>
-		<div class="col-sm-6 d-flex mt-3">
+		<div class="col-sm-4 d-flex mt-3">
 			<%= link_to 'Configurações', edit_catalogue_path(@catalogue), class: 'btn btn-outline-primary flex-grow-1' %>
+		</div>
+		<div class="col-sm-4 d-flex mt-3">
+			<%= link_to "Meus fornecedores (#{@catalogue.catalogue_stores.size})", catalogue_suppliers_path(@catalogue), class: 'btn btn-outline-primary flex-grow-1' %>
 		</div>
 		<!-- <div class="col-sm-6 d-flex mt-3">
 			<%= link_to 'Buscar produtos para revenda', :stores, class: 'btn btn-outline-primary flex-grow-1' %>
 		</div> -->
-		<div class="col-sm-6 d-flex mt-3">
+		<div class="col-sm-4 d-flex mt-3">
 			<%= link_to 'Compartillhar catálogo', "https://wa.me/?text=#{catalogue_url(@catalogue)}", class: 'btn btn-primary flex-grow-1', target: '_blank' %>
 		</div>
 	</div>

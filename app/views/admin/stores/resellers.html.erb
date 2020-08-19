@@ -14,26 +14,33 @@
 </div>
 
 <% if @reseller_catalogues.present? %>
-	<table class="table">
-	  <thead class="thead bg-primary text-light">
-	    <tr>
-	      <th scope="col">#</th>
-	      <th scope="col">Revendedor</th>
-	      <th scope="col">Whatsapp</th>
-	      <th scope="col">Ação</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  	<% @reseller_catalogues.each_with_index do |catalogue, index| %>
+	<div class="container">
+		<h5 class='text-primary'>
+			Você tem <%= @reseller_catalogues.size %> revendedores
+		</h5>
+	</div>
+	<div class="table-responsive">
+		<table class="table">
+		  <thead class="thead bg-primary text-light">
 		    <tr>
-		      <th scope="row"><%= index + 1%></th>
-		      <td><%= catalogue.user.full_name %></td>
-		      <td><%= catalogue.whatsapp_beauty %></td>
-		      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{catalogue.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
+		      <th scope="col">#</th>
+		      <th scope="col">Revendedor</th>
+		      <th scope="col">Whatsapp</th>
+		      <th scope="col">Ação</th>
 		    </tr>
-	  	<% end %>
-	  </tbody>
-	</table>
+		  </thead>
+		  <tbody>
+		  	<% @reseller_catalogues.each_with_index do |catalogue, index| %>
+			    <tr>
+			      <th scope="row"><%= index + 1%></th>
+			      <td><%= catalogue.user.full_name %></td>
+			      <td><%= catalogue.whatsapp_beauty %></td>
+			      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{catalogue.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
+			    </tr>
+		  	<% end %>
+		  </tbody>
+		</table>
+	</div>
 <% else %>
 	<div class="container">
 		<h1>Você ainda não possui nenhum revendedor.</h1>

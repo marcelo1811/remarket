@@ -1,6 +1,6 @@
 class CataloguesController < ApplicationController
   before_action :set_store, only: [:subscribe_to_store, :unsubscribe_from_store]
-  before_action :set_catalogue, only: [:show, :edit, :update]
+  before_action :set_catalogue, only: [:show, :edit, :update, :suppliers]
   skip_before_action :authenticate_user!, only: [ :show ]
 
   def subscribe_to_store
@@ -53,6 +53,11 @@ class CataloguesController < ApplicationController
     end
   end
 
+  def suppliers
+    store_ids = @catalogue.catalogue_stores.pluck(:store_id)
+    @supplier_stores = Store.where(id: store_ids)
+  end
+
   private
 
   def catalogue_params
@@ -64,6 +69,6 @@ class CataloguesController < ApplicationController
   end
 
   def set_catalogue
-    @catalogue = Catalogue.find(params[:id])
+    @catalogue = current_user.catalogue
   end
 end

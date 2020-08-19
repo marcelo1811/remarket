@@ -1,0 +1,47 @@
+<div class='jumbotron jumbotron-fluid"'>
+	<div class='row'>
+		<div class="col-sm-12 d-flex mt-3">
+			<%= link_to 'Voltar', :users, class: 'btn btn-outline-primary flex-grow-1' %>
+		</div>
+		<!-- <div class="col-sm-6 d-flex mt-3">
+			<%= link_to 'Buscar fornecedores', :stores, class: 'btn btn-outline-primary flex-grow-1' %>
+		</div> -->
+	</div>
+</div>
+
+<% if @supplier_stores.present? %>
+	<div class="container">
+		<h5 class='text-primary'>
+			Você tem <%= @supplier_stores.size %> fornecedores
+		</h5>
+	</div>
+	<div class="table-responsive">
+		<table class="table">
+		  <thead class="thead bg-primary text-light">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Fornecedor</th>
+		      <th scope="col">Responsável</th>
+		      <th scope="col">Ação</th>
+		      <th scope="col">Whatsapp</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @supplier_stores.each_with_index do |store, index| %>
+			    <tr>
+			      <th scope="row"><%= index + 1%></th>
+			      <td><%= store.name %></td>
+			      <td><%= store.user.full_name %></td>
+			      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{store.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
+			      <td><%= store.whatsapp_beauty %></td>
+			    </tr>
+		  	<% end %>
+		  </tbody>
+		</table>
+	</div>
+
+<% else %>
+	<div class="container">
+		<h1>Você ainda não possui nenhum fornecedor.</h1>
+	</div>
+<% end %>

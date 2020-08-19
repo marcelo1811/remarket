@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :catalogues, only: [:show, :edit, :update, :new, :create] do
+    get 'suppliers', to: 'catalogues#suppliers', as: :suppliers
     resources :product_catalogues, only: [:edit, :update, :show]
   end
   
