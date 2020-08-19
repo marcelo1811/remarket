@@ -2,17 +2,20 @@
 	<h3><%= @store.name %></h3>
 	<p><strong>Whatsapp para contato:</strong> <%= @store.whatsapp_beauty %></p>
 	<div class='row'>
-		<div class="col-sm-4 d-flex mt-3">
-			<%= link_to 'Editar configurações', edit_admin_store_path(@store), class: 'btn btn-outline-primary flex-grow-1' %>
+		<div class="col-sm-3 d-flex mt-3">
+			<%= link_to 'Configurações', edit_admin_store_path(@store), class: 'btn btn-outline-primary flex-grow-1' %>
 		</div>
-		<div class="col-sm-4 d-flex mt-3">
+		<div class="col-sm-3 d-flex mt-3">
+			<%= link_to "Meus revendedores (#{@store.catalogue_stores.size})", edit_admin_store_path(@store), class: 'btn btn-outline-primary flex-grow-1' %>
+		</div>
+		<div class="col-sm-3 d-flex mt-3">
 			<% if @store.products.size.positive? %>
 				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=Olá, seja meu revendedor da #{@store.name} e escolha seu próprio lucro. Basta se cadastrar nesse link -> #{new_user_registration_url}?invite_code=#{@store.id}", class: 'btn btn-outline-primary flex-grow-1', target: '_blank' %>
 			<% else %>
 				<%= link_to 'Convidar revendedor <i class="fab fa-whatsapp"></i>'.html_safe, :admin, data: { confirm: 'Crie um produto para poder convidar revendedores.' }, class: 'btn btn-outline-primary flex-grow-1' %>
 			<% end %>
 		</div>
-		<div class="col-sm-4 d-flex mt-3">
+		<div class="col-sm-3 d-flex mt-3">
 			<%= link_to 'Criar produto', new_admin_store_product_path(@store), class: 'btn btn-primary flex-grow-1' %>
 		</div>
 	</div>

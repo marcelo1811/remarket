@@ -2,6 +2,7 @@ class Store < ApplicationRecord
   belongs_to :user
 
   has_many :products, dependent: :destroy
+  has_many :catalogue_stores, dependent: :destroy
 
   validates :name, presence: true
   validates :description, presence: true
