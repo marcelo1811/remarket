@@ -19,6 +19,9 @@
 	</div>
 </div>
 <div class="container">
+	<div class='d-flex justify-content-between align-items-center'>
+		<h4 class='text-primary'>Seus produtos (<%= @product_catalogues.size %>)</h4>
+	</div>
 	<% if @product_catalogues.present? %>
 		<div class="row">
 			<%= render partial: "product_catalogue", collection: @product_catalogues %>
