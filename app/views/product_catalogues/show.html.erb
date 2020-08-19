@@ -42,10 +42,11 @@
 		  </div>
 		</div>
 		<div class="form-actions d-flex justify-content-between my-4">
-		 	<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
 		 	<% if @product_catalogue.owner?(current_user) %>
+		 		<%= link_to 'Meu catálogo', :users, class: 'btn btn-outline-primary' %>
       			<%= f.button :submit, "Avisar fornecedor", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
 			<% else %>
+		 		<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
       			<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
       		<% end %>
 		</div>
