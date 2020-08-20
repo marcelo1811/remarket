@@ -47,8 +47,8 @@
 			    </div>
 			    <div class="d-flex justify-content-around">
 			    	<% if product_catalogue.margin.positive? %>
-						<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-secondary'%>
-				    	<%= link_to'Compartilhar', "https://wa.me/?text=#{catalogue_product_catalogue_url(@catalogue, product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
+						<%= link_to 'Editar', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-outline-primary'%>
+				    	<%= link_to'Compartilhar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=#{catalogue_product_catalogue_url(@catalogue, product_catalogue)}", class: 'btn btn-primary', target: '_blank' %>
 		    		<% else %>
 						<%= link_to 'Adicionar margem lucro', edit_catalogue_product_catalogue_path(@catalogue, product_catalogue), class: 'btn btn-danger'%>
 		    		<% end %>

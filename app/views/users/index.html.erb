@@ -2,6 +2,7 @@
 	<div>
 		<p><strong>Nome do catálogo:</strong> <%= @catalogue.name %></p>
 		<p><strong>Whatsapp para contato:</strong> <%= @catalogue.whatsapp_beauty %></p>
+		<p><strong>Link do catálogo:</strong> <%= link_to catalogue_url(@catalogue), catalogue_url(@catalogue) %></p>
 	</div>
 	<div class='row'>
 		<div class="col-sm-4 d-flex mt-3">
@@ -14,7 +15,7 @@
 			<%= link_to 'Buscar produtos para revenda', :stores, class: 'btn btn-outline-primary flex-grow-1' %>
 		</div> -->
 		<div class="col-sm-4 d-flex mt-3">
-			<%= link_to 'Compartillhar catálogo', "https://wa.me/?text=#{catalogue_url(@catalogue)}", class: 'btn btn-primary flex-grow-1', target: '_blank' %>
+			<%= link_to 'Compartilhar catálogo <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/?text=#{catalogue_url(@catalogue)}", class: 'btn btn-secondary flex-grow-1', target: '_blank' %>
 		</div>
 	</div>
 </div>
