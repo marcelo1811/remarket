@@ -1,6 +1,8 @@
 <div class='jumbotron jumbotron-fluid"'>
 	<h3><%= @store.name %></h3>
 	<p><strong>Whatsapp para contato:</strong> <%= @store.whatsapp_beauty %></p>
+	<p><strong>Link da loja:</strong> <%= link_to store_products_url(@store), store_products_url(@store) %></p>
+
 	<div class='row'>
 		<div class="col-sm-4 d-flex mt-3">
 			<%= link_to 'Configurações', edit_admin_store_path(@store), class: 'btn btn-outline-primary flex-grow-1' %>

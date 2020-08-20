@@ -17,7 +17,10 @@ Rails.application.routes.draw do
 
   get 'stores/:id/terms', to: 'stores#terms', as: :store_terms
   resources :stores, only: [:show, :index, :terms] do
-    resources :products, only: [:show]
+    resources :products, only: [:show, :index] do
+      get 'sales_page', to: 'products#sales_page', as: :sales_page
+    end
+
     resources :catalogues, only: [:create]
     post 'subscribe_to_store', to: 'catalogues#subscribe_to_store', as: :subscribe_to_store
     post 'unsubscribe_from_store', to: 'catalogues#unsubscribe_from_store', as: :unsubscribe_from_store
@@ -28,6 +31,7 @@ Rails.application.routes.draw do
     resources :product_catalogues, only: [:edit, :update, :show]
   end
   
+  post 'product/:id/order_on_whats', to: 'products#order_on_whats', as: :store_order_on_whats
   post 'product_catalogues/:id/order_on_whats', to: 'product_catalogues#order_on_whats', as: :order_on_whats
   post 'product_catalogues/:id/notify_supplier', to: 'product_catalogues#notify_supplier', as: :notify_supplier
 end

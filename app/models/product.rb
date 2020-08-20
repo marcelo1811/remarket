@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  attr_accessor :variants
- 
+  attr_accessor :variants, :product_variant_id, :quantity
+
   has_one_attached :photo
  
   belongs_to :store
@@ -32,6 +32,10 @@ class Product < ApplicationRecord
 
   def cheapest_product_variant
     product_variants.order(price: :asc).first
+  end
+
+  def owner?(user)
+    self.store.user == user
   end
 
   private

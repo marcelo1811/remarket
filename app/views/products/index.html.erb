@@ -1,0 +1,19 @@
+<div class='jumbotron jumbotron-fluid"'>
+	<h3 class='text-primary'><%= @store.name %></h3>
+	<p><%= @store.description %></p>
+	<div class="row mt-3">
+		<div class="col-sm-12 d-flex mt-3">
+			<%= link_to 'Enviar mensagem <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{@store.whatsapp_complete}", class: 'btn btn-primary flex-grow-1' %>
+		</div>
+		<% if current_user.present? %>
+			<div class="col-sm-12 d-flex mt-3">
+				<%= link_to 'Meus produtos', :users, class: 'btn btn-outline-primary flex-grow-1' %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<%= render partial: 'product', collection: @store.products.active %>
+	</div>
+</div>

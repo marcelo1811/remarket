@@ -1,0 +1,46 @@
+<% content_for :head do %>
+    <meta property="og:title" content="<%= @product.name %>" />
+    <meta property="og:url" content="https://www.revendy.com.br" />
+    <meta property="og:description" content="<%= @product.description %>">
+    <meta property="og:image" content="<%= cl_image_path @product.photo.key, height: 630, width: 1200, crop: :fill %>">
+<% end %>
+
+<%= simple_form_for @product, url: (store_order_on_whats_path(@product)), method: :post  do |f| %>
+	<div class="container my-3">
+		<h3 class='text-primary'><%= @product.name %></h3>
+
+		<div class="row">
+		  <div class="col-sm-6">
+		    <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+		  </div>
+		  <div class="col-sm-6">
+		    <h5 class='text-primary'><strong>Descrição</strong></h5>
+		    <p><%= @product.description %></p>
+
+		    <h5 class='text-primary'><strong>Variações</strong></h5>
+		    <%= f.input :product_variant_id,
+	    				collection: @product.product_variants.map { |variant| ["<strong>#{variant.name}</strong> - #{number_to_currency((variant.price), unit: "R$", separator: ",", delimiter: "")}".html_safe, variant.id] },
+	    				as: :radio_buttons,
+	    				label: '',
+	    				checked: params[:variant_id] || @product.product_variants.first.id,
+	    				disabled: params[:variant_id].present? %>
+
+		    <%= f.input :quantity,
+		    			collection: 1..5,
+		    			selected: params[:quantity] || 1, label: 'Quantidade',
+		    			disabled: params[:quantity].present? %>
+		  </div>
+		</div>
+		<div class="form-actions d-flex justify-content-between my-4">
+		 	<% if @product.owner?(current_user) %>
+		 		<%= link_to 'Meu catálogo', :users, class: 'btn btn-outline-primary' %>
+			<% elsif @product.is_active? %>
+		 		<%= link_to 'Voltar', store_products_path(@store), class: 'btn btn-outline-primary' %>
+      			<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+      		<% else %>
+		 		<%= link_to 'Voltar', store_products_path(@store), class: 'btn btn-outline-primary' %>
+      			<p class='text-warning'>Produto indisponível</p>
+      		<% end %>
+		</div>
+	</div>
+<% end %>
