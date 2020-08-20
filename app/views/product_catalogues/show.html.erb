@@ -2,7 +2,7 @@
 	<title><%= @catalogue.name %></title>
     <meta name="description" content="Compartilhe catálogos de produtos">
     <meta property="og:title" content="<%= @product_catalogue.product.name %>" />
-    <meta property="og:url" content="https://www.example.com/webpage/" />
+    <meta property="og:url" content="https://www.revendy.com.br" />
     <meta property="og:description" content="<%= @product_catalogue.product.description %>">
     <meta property="og:image" content="<%= cl_image_path @product_catalogue.product.photo.key, height: 630, width: 1200, crop: :fill %>">
 <% end %>
@@ -31,7 +31,7 @@
 		    			collection: 1..5,
 		    			selected: params[:quantity] || 1, label: 'Quantidade',
 		    			disabled: @product_catalogue.owner?(current_user) && params[:quantity].present? %>
-		    <% if @product_catalogue.owner?(current_user) %>
+		    <% if @product_catalogue.owner?(current_user) && params[:variant_id].present? && params[:quantity].present? %>
 				<%= f.input :product_variant_id,
 							as: :hidden,
 							input_html: { value: params[:variant_id] } %>
