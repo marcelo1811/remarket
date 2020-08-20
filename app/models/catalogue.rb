@@ -9,7 +9,7 @@ class Catalogue < ApplicationRecord
   validates :whatsapp_ddd, presence: true
 
   def subscribe_to_store(store)
-    CatalogueStore.create(store: store, catalogue: self)
+    CatalogueStore.find_or_create_by(store: store, catalogue: self)
   end
 
   def unsubscribe_from_store(store)

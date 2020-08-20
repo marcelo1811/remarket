@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   root to: 'users#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :users, only: [:index] do
-  end
+  get 'invite_reseller', to: 'pages#invite_reseller', as: :invite_reseller
+
+  resources :users, only: [:index]
 
   get 'admin', to: 'admin#index', as: :admin
   namespace :admin do
