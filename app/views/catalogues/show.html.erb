@@ -1,3 +1,11 @@
+<% content_for :head do %>
+    <meta property="og:title" content="<%= @catalogue.name %>" />
+    <meta property="og:url" content="https://www.revendy.com.br" />
+    <meta property="og:description" content="Conheça meu catálogo de produtos na revendy">
+    <!-- <meta property="og:image" content=""> -->
+<% end %>
+
+
 <div class='jumbotron jumbotron-fluid"'>
 	<h3 class='text-primary'><%= @catalogue.name %></h3>
 </div>
