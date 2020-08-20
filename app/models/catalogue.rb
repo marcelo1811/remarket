@@ -1,7 +1,7 @@
 class Catalogue < ApplicationRecord
   belongs_to :user
 
-  has_many :product_catalogues
+  has_many :product_catalogues, dependent: :destroy
   has_many :catalogue_stores, dependent: :destroy
 
   validates :name, presence: true

@@ -43,9 +43,12 @@
 		 	<% if @product_catalogue.owner?(current_user) %>
 		 		<%= link_to 'Meu catálogo', :users, class: 'btn btn-outline-primary' %>
       			<%= f.button :submit, "Avisar fornecedor", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
-			<% else %>
+			<% elsif @product_catalogue.product.is_active? %>
 		 		<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
       			<%= f.button :submit, "Pedir no whats", class: 'btn btn-primary', formtarget: "_blank", data: { disable_with: "Abrindo whats..." } %>
+      		<% else %>
+		 		<%= link_to 'Voltar', @catalogue, class: 'btn btn-outline-primary' %>
+      			<p class='text-warning'>Produto indisponível</p>
       		<% end %>
 		</div>
 	</div>
