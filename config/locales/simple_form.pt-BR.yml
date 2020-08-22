@@ -1,0 +1,40 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+      store: Loja
+      catalogue: Catálogo
+      product: Produto
+      product_variant: Variante de produto
+    attributes:
+        user:
+          first_name: Primeiro nome
+          last_name: Sobrenome
+          password: Senha
+          password_confirmation: Confirmação de senha
+          admin: Administrador?
+          remember_me: Lembrar-me
+        store:
+          name: Nome
+          description: Descrição
+          terms: Termos e condições para revenda
+          whatsapp_number: Whatsapp
+          whatsapp_ddd: DDD
+        catalogue:
+          name: Nome
+          whatsapp_number: Whatsapp
+          whatsapp_ddd: DDD
+        product:
+          name: Nome
+          description: Descrição
+          is_active: Ativo?
+          photo: Foto
+        product_catalogue:
+          margin: Margem de lucro
+          is_active: Ativo?
+        product_variant:
+          price: Preço
+          name: Nome
+
+
+                
