@@ -5,7 +5,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   attr_accessor :invite_code
 
   has_one :catalogue
@@ -27,6 +26,6 @@ class User < ApplicationRecord
   private
 
   def check_invite_code
-    update(admin: true) if invite_code == 'admin'
+    # update(admin: true) if invite_code == 'admin'
   end
 end

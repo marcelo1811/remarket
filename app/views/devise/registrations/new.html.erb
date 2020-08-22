@@ -37,6 +37,14 @@
                             input_html: { autocomplete: "new-password" } %>
             </div>
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <%= f.input :admin,
+                            required: true,
+                            label: 'Tenho loja',
+                            input_html: { autocomplete: "new-password" } %>
+            </div>
+        </div>
         <%= f.input :invite_code,
                     required: false,
                     as: :hidden,
