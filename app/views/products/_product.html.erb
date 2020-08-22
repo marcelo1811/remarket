@@ -13,7 +13,7 @@
 					A partir de <strong><%= number_to_currency(product.cheapest_product_variant.price, unit: "R$", separator: ",", delimiter: "") %></strong>
 				</p>
 			    <div class="card-text">
-			    	<p class='line-clamp-3'>
+			    	<p class='text-truncate'>
 			    		<%= product.description %>
 			    	</p>
 			    </div>
