@@ -21,9 +21,10 @@ Rails.application.routes.draw do
       get 'sales_page', to: 'products#sales_page', as: :sales_page
     end
 
-    resources :catalogues, only: [:create]
-    post 'subscribe_to_store', to: 'catalogues#subscribe_to_store', as: :subscribe_to_store
-    post 'unsubscribe_from_store', to: 'catalogues#unsubscribe_from_store', as: :unsubscribe_from_store
+    resources :catalogues, only: [:create] do
+      post 'subscribe_to_store', to: 'catalogues#subscribe_to_store', as: :subscribe_to_store
+      post 'unsubscribe_from_store', to: 'catalogues#unsubscribe_from_store', as: :unsubscribe_from_store
+    end
   end
 
   resources :catalogues, only: [:show, :edit, :update, :new, :create] do

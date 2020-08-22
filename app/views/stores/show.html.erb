@@ -7,7 +7,7 @@
 				<p class="text-warning">Você já é revendedor</p>
 			</div>
 			<div class="col-sm-12 d-flex">
-				<%#= link_to 'Deixar de ser revendedor', store_unsubscribe_from_store_path(@store),
+				<%= link_to 'Deixar de ser revendedor', store_catalogue_unsubscribe_from_store_path(@store, current_user.catalogue),
 				class: 'btn btn-outline-danger flex-grow-1',
 				method: :post,
 				data: { confirm: "Tem certeza que deseja deixar de ser revendedor da #{@store.name}? Os produtos dela deixaram de aparecer no seu catálogo" } %>

@@ -7,6 +7,6 @@
 
 	<div class="d-flex justify-content-between my-3">
 		<%= link_to 'Voltar', @store, class: 'btn btn-outline-primary' %>
-		<%= link_to 'Confirmar', store_subscribe_to_store_path(@store), method: :post, class: 'btn btn-primary' %>
+		<%= link_to 'Confirmar', store_catalogue_subscribe_to_store_path(@store, current_user.catalogue), method: :post, class: 'btn btn-primary' %>
 	</div>
 </div>

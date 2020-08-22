@@ -24,8 +24,8 @@
 		  <thead class="thead bg-primary text-light">
 		    <tr>
 		      <th scope="col">#</th>
-		      <th scope="col">Revendedor</th>
-		      <th scope="col">Whatsapp</th>
+		      <th scope="col">Nome</th>
+		      <th scope="col">Contato <i class=fab fa-whatsapp"></i></th>
 		      <th scope="col">Ação</th>
 		    </tr>
 		  </thead>
@@ -34,8 +34,8 @@
 			    <tr>
 			      <th scope="row"><%= index + 1%></th>
 			      <td><%= catalogue.user.full_name %></td>
-			      <td><%= catalogue.whatsapp_beauty %></td>
-			      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{catalogue.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
+			      <td><%= link_to "#{catalogue.whatsapp_beauty}".html_safe, "https://wa.me/#{catalogue.whatsapp_complete}" %></td>
+			      <td><%= link_to 'Excluir', store_catalogue_unsubscribe_from_store_path(@store, catalogue), class: 'btn btn-outline-danger', method: :post, data: { confirm: 'Tem certeza que seja excluir este revendedor?' } %></td>
 			    </tr>
 		  	<% end %>
 		  </tbody>
