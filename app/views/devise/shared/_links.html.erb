@@ -6,9 +6,11 @@
   <%= link_to "Criar conta", new_registration_path(resource_name) %><br />
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Esqueci minha senha", new_password_path(resource_name) %><br />
-<% end %>
+<%= link_to 'Dúvidas ou problemas?', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank' %><br />
+
+<%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%#= link_to "Esqueci minha senha", new_password_path(resource_name) %><br />
+<%# end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
