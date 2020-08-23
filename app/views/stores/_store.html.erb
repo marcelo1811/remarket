@@ -5,11 +5,11 @@
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner">
 				  	<div class="carousel-item active">
-						<%= cl_image_tag store.products.first.photo.key, class: 'd-block', alt: 'Falha na imagem', style: 'height: 18rem;' %>
+						<%= cl_image_tag store.products.first.photo.key, class: 'd-block', alt: 'Falha na imagem', style: 'height: 18rem;', crop: :pad %>
 				    </div>
 				  	<% store.products.last(5).select { |item| item != store.products.first}.each do |product| %>
 					    <div class="carousel-item">
-							<%= cl_image_tag product.photo.key, class: 'd-block', alt: 'Falha na imagem', style: 'height: 18rem;' %> 
+							<%= cl_image_tag product.photo.key, class: 'd-block', alt: 'Falha na imagem', style: 'height: 18rem;', crop: :pad %> 
 					    </div>
 				  	<% end %>
 				  </div>

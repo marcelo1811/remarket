@@ -2,7 +2,7 @@
     <meta property="og:title" content="<%= @product_catalogue.product.name %>" />
     <meta property="og:url" content="https://www.revendy.com.br" />
     <meta property="og:description" content="<%= @product_catalogue.product.description %>">
-    <meta property="og:image" content="<%= cl_image_path @product_catalogue.product.photo.key, height: 630, width: 1200, crop: :fill %>">
+    <meta property="og:image" content="<%= cl_image_path @product_catalogue.product.photo.key, height: 630, width: 1200, crop: :pad %>">
 <% end %>
 
 <%= simple_form_for @product_catalogue, url: (@product_catalogue.owner?(current_user) ? notify_supplier_path(@product_catalogue) : order_on_whats_path(@product_catalogue)), method: :post  do |f| %>
@@ -11,7 +11,7 @@
 
 		<div class="row">
 		  <div class="col-sm-6">
-		    <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :fill %>
+		    <%= cl_image_tag @product_catalogue.product.photo.key, height: 300, width: 400, crop: :pad %>
 		  </div>
 		  <div class="col-sm-6">
 		    <h5 class='text-primary'><strong>Descrição</strong></h5>

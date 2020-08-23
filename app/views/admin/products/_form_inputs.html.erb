@@ -1,5 +1,5 @@
 <% if @product.photo.present? %>
-	<%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+	<%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :pad %>
 <% end %>
 
 <%= f.input :photo, as: :file %>
