@@ -23,12 +23,16 @@
           </li>
         <% end %>
         
-        <li class="nav-item active">
+        <li class="nav-item">
+          <%= link_to 'Suporte', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "nav-link" %><br />
+        </li>
+
+        <li class="nav-item">
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link text-primary" %>
         </li>
       <% end %>
     </ul>
