@@ -1,6 +1,9 @@
 <div class='jumbotron jumbotron-fluid"'>
 	<div class='row'>
 		<div class="col-sm-12 d-flex mt-3">
+			<%= link_to 'Indique um loja para gente', "https://wa.me/5541995794954?text=Olá Marcelo, gostaria de indicar um fornecedor para a revendy", class: 'btn btn-primary flex-grow-1', target: '_blank' %>
+		</div>
+		<div class="col-sm-12 d-flex mt-3">
 			<%= link_to 'Voltar', :users, class: 'btn btn-outline-primary flex-grow-1' %>
 		</div>
 		<!-- <div class="col-sm-6 d-flex mt-3">
@@ -30,7 +33,7 @@
 		  	<% @supplier_stores.each_with_index do |store, index| %>
 			    <tr>
 			      <th scope="row"><%= index + 1%></th>
-			      <td><%= store.name %></td>
+			      <td><%= link_to store.name, store %></td>
 			      <td><%= store.user.full_name %></td>
 			      <td><%= link_to 'Falar <i class="fab fa-whatsapp"></i>'.html_safe, "https://wa.me/#{store.whatsapp_complete}", class: 'btn btn-outline-primary' %></td>
 			      <td><%= store.whatsapp_beauty %></td>
