@@ -22,7 +22,7 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email", value: params[:user].try(:[], :email) } %>
 
         <div class="row">
             <div class="col-sm-6">
@@ -42,7 +42,9 @@
                 <div class="col-sm-12">
                     <%= f.input :admin,
                                 required: true,
-                                label: 'Tenho loja',
+                                as: :radio_buttons,
+                                collection: [['Já possuo produtos', '1'], ['Quero ser revendedor', '0']],
+                                label: 'Tipo de conta',
                                 input_html: { autocomplete: "new-password" } %>
                 </div>
             </div>

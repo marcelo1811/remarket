@@ -13,7 +13,7 @@
 				<%= link_to "Comece a revender", new_user_registration_path, class:'btn btn-primary mt-5 p-3' %>
 			</div>
 		</div>
-		<div class="col-sm-6 p-0 position-relative" style='min-height: 500px;)'>
+		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
 			<%= image_tag "woman.png", alt: 'woman', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
 		</div>
 	</div>
@@ -44,12 +44,18 @@
 					</div class='d-flex align-items-center'>
 				</div>
 				<div class="d-flex justify-content-center">
-					<%= link_to "Quero revender", new_user_registration_path, class:'btn btn-secondary mt-5 p-3' %>
+					<%= simple_form_for(User.new, url: new_user_registration_path, method: :get) do |f| %>
+						<div class="form-inline mt-5">
+							<%= f.input :email, label: false, placeholder: 'Email' %>
+		    				<%= f.button :submit, "Comece já!", class: 'btn btn-secondary' %>
+						</div>
+						<%#= link_to "Quero revender", new_user_registration_path, class:'btn btn-secondary mt-5 p-3' %>
+					<% end %>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 p-0 position-relative" style='min-height: 500px;)'>
-			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:100%;' %>
+		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
+			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
 		</div>
 	</div>
 </div>
