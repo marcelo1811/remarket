@@ -14,34 +14,42 @@
 			</div>
 		</div>
 		<div class="col-sm-6 p-0 position-relative" style='min-height: 500px;)'>
-			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:100%;' %>
+			<%= image_tag "woman.png", alt: 'woman', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
 		</div>
 	</div>
-	<div class="row bg-primary p-5">
-		<div class="col-sm-6 text-white">
-			<h2 class='text-secondary'>Como funciona?</h2>
-			<div class='mt-5'>
-				<div class='d-flex align-items-center mt-4'>
-					<h3><i class="fas fa-search"></i></h3>
-					<h5 class='ml-5'>Busque produtos com nossos fornecedores</h5>
-				</div class='d-flex align-items-center'>
-				<div class='d-flex align-items-center mt-4'>
-					<h3><i class="fas fa-file-import"></i></i></h3>
-					<h5 class='ml-5'>Adicione-os ao seu catálogo e escolha suas margens de lucro</h5>
-				</div class='d-flex align-items-center'>
-				<div class='d-flex align-items-center mt-4'>
-					<h3><i class="far fa-comments"></i></i></h3>
-					<h5 class='ml-5'>Compartilhe seu catálogo com seus amigos e em redes sociais</h5>
-				</div class='d-flex align-items-center'>
-				<div class='d-flex align-items-center mt-4'>
-					<h3><i class="far fa-check-square"></i></h3>
-					<h5 class='ml-5'>Receba os pedidos direto no seu whatsapp</h5>
-				</div class='d-flex align-items-center'>
-				<div class='d-flex align-items-center mt-4'>
-					<h3><i class="fas fa-hand-holding-usd"></i></h3>
-					<h5 class='ml-5'>Repasse o pedido para o fornecedor e receba suas margens</h5>
-				</div class='d-flex align-items-center'>
+	<div class="row bg-primary" id='como-funciona'>
+		<div class="col-sm-6 text-white p-5">
+			<div class="p-md-5">
+				<h2 class='text-secondary'>Como funciona?</h2>
+				<div class='mt-5'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-search"></i></h3>
+						<h5 class='ml-5'>Busque produtos com nossos fornecedores</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-file-import"></i></i></h3>
+						<h5 class='ml-5'>Adicione-os ao seu catálogo e escolha suas margens de lucro</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="far fa-comments"></i></i></h3>
+						<h5 class='ml-5'>Compartilhe seu catálogo com seus amigos e em redes sociais</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="far fa-check-square"></i></h3>
+						<h5 class='ml-5'>Receba os pedidos direto no seu whatsapp</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-hand-holding-usd"></i></h3>
+						<h5 class='ml-5'>Repasse o pedido para o fornecedor e receba suas margens</h5>
+					</div class='d-flex align-items-center'>
+				</div>
+				<div class="d-flex justify-content-center">
+					<%= link_to "Quero revender", new_user_registration_path, class:'btn btn-secondary mt-5 p-3' %>
+				</div>
 			</div>
+		</div>
+		<div class="col-sm-6 p-0 position-relative" style='min-height: 500px;)'>
+			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:100%;' %>
 		</div>
 	</div>
 </div>
