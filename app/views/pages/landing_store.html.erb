@@ -3,14 +3,14 @@
 		<div class="col-sm-6 d-flex justify-content-center flex-column p-5">
 			<div class="p-md-5">
 				<h1 class='text-primary'>
-					Comece a revender
-					sem nenhum investimento
+					Venda através da primeira plataforma de revendas do Brasil
 				</h1>
 				<p class='text-secondary mt-3'>
-					Encontre fornecedores, crie um catálogo de produtos, <br>
-					escolha suas margens e comece a revender online.
+					Tenha sua própria loja online e diversas pessoas divulgando seus produtos para você!
+					<!-- Encontre fornecedores, crie um catálogo de produtos, <br>
+					escolha suas margens e comece a revender online. -->
 				</p>
-				<%= link_to "Comece a revender", new_user_registration_path, class:'btn btn-primary mt-5 p-3 btn-lg' %>
+				<%= link_to "Comece a Vender", new_user_registration_path, class:'btn btn-primary mt-5 p-3 btn-lg' %>
 			</div>
 		</div>
 		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
@@ -23,24 +23,28 @@
 				<h2 class='text-secondary'>Como a Revendy funciona?</h2>
 				<div class='mt-5'>
 					<div class='d-flex align-items-center mt-4'>
-						<h3><i class="fas fa-search"></i></h3>
-						<h5 class='ml-5'>Busque produtos com nossos fornecedores</h5>
-					</div class='d-flex align-items-center'>
-					<div class='d-flex align-items-center mt-4'>
 						<h3><i class="fas fa-file-import"></i></i></h3>
-						<h5 class='ml-5'>Adicione-os ao seu catálogo e escolha suas margens de lucro</h5>
+						<h5 class='ml-5'>Crie sua conta e cadastre seus produtos</h5>
 					</div class='d-flex align-items-center'>
 					<div class='d-flex align-items-center mt-4'>
-						<h3><i class="far fa-comments"></i></i></h3>
-						<h5 class='ml-5'>Compartilhe seu catálogo com seus amigos e em redes sociais</h5>
+						<h3><i class="fas fa-user-check"></i></h3>
+						<h5 class='ml-5'>Convide revendedores dentro ou fora da Revendy</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-comments-dollar"></i></h3>
+						<h5 class='ml-5'>Os revendedores escolhem as margens deles</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-store"></i></h3>
+						<h5 class='ml-5'>Cada um tem sua própria loja online com preços próprios. Inclusive você!</h5>
 					</div class='d-flex align-items-center'>
 					<div class='d-flex align-items-center mt-4'>
 						<h3><i class="far fa-check-square"></i></h3>
-						<h5 class='ml-5'>Receba os pedidos direto no seu whatsapp</h5>
+						<h5 class='ml-5'>Receba pedidos pelo whatsapp</h5>
 					</div class='d-flex align-items-center'>
 					<div class='d-flex align-items-center mt-4'>
 						<h3><i class="fas fa-hand-holding-usd"></i></h3>
-						<h5 class='ml-5'>Repasse o pedido para o fornecedor e receba suas margens</h5>
+						<h5 class='ml-5'>Quando fechar uma compra, repasse a comissão para os revendedores</h5>
 					</div class='d-flex align-items-center'>
 				</div>
 				<div class="d-flex justify-content-center">
@@ -53,15 +57,19 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
+		<div class="col-sm-6 p-0 position-relative d-md-flex justify-content-center d-none d-md-block" style='min-height: 500px;)'>
 			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
 		</div>
 	</div>
 	<div class="row align-items bg-secondary">
-		<div class='p-5 col-sm-6 offset-sm-3 d-flex flex-column justify-content-center align-items-center' style='min-height: 500px;'>
-			<h2 class='text-white'>+ de 100 produtos para serem revendidos</h1>
-			<%= image_tag "computer.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'mt-4' %>
-			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg' %>
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center order-md-2'>
+			<h2 class='text-white text-center'>Tenha sua própria loja online</h2>
+			<h3 class="text-primary text-center">Em menos de 15 minutos</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 order-md-1 d-flex justify-content-center flex-column pb-5">
+			<%= image_tag "computer.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'m-4' %>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-md-none' %>
 		</div>
 	</div>
 	<div class="row bg-white">

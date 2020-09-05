@@ -31,6 +31,17 @@
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
         </li>
       <% else %>
+
+        <% if current_page?(root_path) %>
+          <li class="nav-item">
+            <%= link_to 'Sou Lojista', landing_store_path, class: "nav-link" %><br />
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Quero Revender', root_path, class: "nav-link" %><br />
+          </li>
+        <% end %>
+      
         <li class="nav-item">
           <%= link_to 'Contato', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "nav-link" %><br />
         </li>

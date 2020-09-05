@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  get 'lojista', to: 'pages#landing_store', as: :landing_store
   get 'invite_reseller', to: 'pages#invite_reseller', as: :invite_reseller
 
   resources :users, only: [:index]
