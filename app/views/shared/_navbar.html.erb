@@ -31,6 +31,9 @@
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
         </li>
       <% else %>
+        <li class="nav-item">
+          <%= link_to 'Contato', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "nav-link" %><br />
+        </li>
         <li class="nav-item mr-3">
           <a href="#como-funciona" class="nav-link">
             Como Funciona?

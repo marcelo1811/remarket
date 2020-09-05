@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row bg-white" style='min-height: calc(100vh - 50px)'>
-		<div class="col-sm-6 d-flex justify-content-center flex-column p-5 pb-sm-0 h-100">
+		<div class="col-sm-6 d-flex justify-content-center flex-column p-5">
 			<div class="p-md-5">
 				<h1 class='text-primary'>
 					Comece a revender
@@ -20,7 +20,7 @@
 	<div class="row bg-primary" id='como-funciona'>
 		<div class="col-sm-6 text-white p-5">
 			<div class="p-md-5">
-				<h2 class='text-secondary'>Como funciona?</h2>
+				<h2 class='text-secondary'>Como a Revendy funciona?</h2>
 				<div class='mt-5'>
 					<div class='d-flex align-items-center mt-4'>
 						<h3><i class="fas fa-search"></i></h3>
@@ -49,13 +49,39 @@
 							<%= f.input :email, label: false, placeholder: 'Email' %>
 		    				<%= f.button :submit, "Comece já!", class: 'btn btn-secondary' %>
 						</div>
-						<%#= link_to "Quero revender", new_user_registration_path, class:'btn btn-secondary mt-5 p-3' %>
 					<% end %>
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
 			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
+		</div>
+	</div>
+	<div class="row align-items bg-secondary">
+		<div class='p-5 col-sm-6 offset-sm-3 d-flex flex-column justify-content-center align-items-center' style='min-height: 500px;'>
+			<h2 class='text-white'>+ de 100 produtos para serem revendidos</h1>
+			<%= image_tag "computer.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'mt-4' %>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg' %>
+		</div>
+	</div>
+	<div class="row bg-white">
+		<div class="col-sm-6 p-5">
+			<div class="pl-md-5">
+				<p><strong>O que é a Revendy</strong></p>
+				<P>A Revendy é a primeira plataforma a conectar vendedores a revendedores de uma mesma região no Brasil. Com ela é possível é possível escalar as suas vendas como lojistas, e criar um negócio do zero sem nenhum investimento como revendedor. Tudo isso sem sair de casa.</P>
+			</div>
+		</div>
+		<div class="col-sm-6 p-5">
+			<div class="pl-md-5">
+				<p><strong>Links</strong></p>
+				<div>
+					<a href="#como-funciona">Como funciona?</a>
+				</div>
+				<div>
+	          		<%= link_to 'Fale Conosco', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "" %>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </div>
