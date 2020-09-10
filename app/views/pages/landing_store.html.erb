@@ -69,7 +69,26 @@
 		</div>
 		<div class="col-sm-6 order-md-1 d-flex justify-content-center flex-column pb-5">
 			<%= image_tag "computer.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'m-4' %>
-			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-md-none' %>
+		</div>
+	</div>
+	<div class="row align-items bg-white">
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center'>
+			<h2 class='text-primary text-center'>Gerencie seus revendedores</h2>
+			<h3 class="text-secondary text-center">E convide novos em apenas um clique</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 d-flex justify-content-center flex-column pb-5">
+			<%= image_tag "resellers.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'m-4' %>
+		</div>
+	</div>
+	<div class="row align-items bg-secondary">
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center order-md-2'>
+			<h2 class='text-white text-center'>Receba seus pedidos no whatsapp</h2>
+			<h3 class="text-primary text-center">Com todas as informações necessárias</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 p-0 position-relative d-md-flex justify-content-center" id="chat_phone_img">
+			<%= image_tag "chat.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
 		</div>
 	</div>
 	<div class="row bg-white">
