@@ -1,0 +1,114 @@
+<div class="container-fluid">
+	<div class="row bg-white" style='min-height: calc(100vh - 50px)'>
+		<div class="col-sm-6 d-flex justify-content-center flex-column p-5">
+			<div class="p-md-5">
+				<h1 class='text-primary'>
+					Venda através da primeira plataforma de revendas do Brasil
+				</h1>
+				<p class='text-secondary mt-3'>
+					Tenha sua própria loja online e diversas pessoas divulgando seus produtos para você!
+					<!-- Encontre fornecedores, crie um catálogo de produtos, <br>
+					escolha suas margens e comece a revender online. -->
+				</p>
+				<%= link_to "Comece a Vender", new_user_registration_path, class:'btn btn-primary mt-5 p-3 btn-lg' %>
+			</div>
+		</div>
+		<div class="col-sm-6 p-0 position-relative d-flex justify-content-center" style='min-height: 500px;)'>
+			<%= image_tag "woman.png", alt: 'woman', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
+		</div>
+	</div>
+	<div class="row bg-primary" id='como-funciona'>
+		<div class="col-sm-6 text-white p-5">
+			<div class="p-md-5">
+				<h2 class='text-secondary'>Como a Revendy funciona?</h2>
+				<div class='mt-5'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-file-import"></i></i></h3>
+						<h5 class='ml-5'>Crie sua conta e cadastre seus produtos</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-user-check"></i></h3>
+						<h5 class='ml-5'>Convide revendedores dentro ou fora da Revendy</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-comments-dollar"></i></h3>
+						<h5 class='ml-5'>Os revendedores escolhem as margens deles</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-store"></i></h3>
+						<h5 class='ml-5'>Cada um tem sua própria loja online com preços próprios. Inclusive você!</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="far fa-check-square"></i></h3>
+						<h5 class='ml-5'>Receba pedidos pelo whatsapp</h5>
+					</div class='d-flex align-items-center'>
+					<div class='d-flex align-items-center mt-4'>
+						<h3><i class="fas fa-hand-holding-usd"></i></h3>
+						<h5 class='ml-5'>Quando fechar uma compra, repasse a comissão para os revendedores</h5>
+					</div class='d-flex align-items-center'>
+				</div>
+				<div class="d-flex justify-content-center">
+					<%= simple_form_for(User.new, url: new_user_registration_path, method: :get) do |f| %>
+						<div class="form-inline mt-5">
+							<%= f.input :email, label: false, placeholder: 'Email' %>
+		    				<%= f.button :submit, "Comece já!", class: 'btn btn-secondary' %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 p-0 position-relative d-md-flex justify-content-center d-none d-md-block" style='min-height: 500px;)'>
+			<%= image_tag "revendy-smartphone.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
+		</div>
+	</div>
+	<div class="row align-items bg-secondary">
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center order-md-2'>
+			<h2 class='text-white text-center'>Tenha sua própria loja online</h2>
+			<h3 class="text-primary text-center">Em menos de 15 minutos</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 order-md-1 d-flex justify-content-center flex-column pb-5">
+			<%= image_tag "computer.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'m-4' %>
+		</div>
+	</div>
+	<div class="row align-items bg-white">
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center'>
+			<h2 class='text-primary text-center'>Gerencie seus revendedores</h2>
+			<h3 class="text-secondary text-center">E convide novos em apenas um clique</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 d-flex justify-content-center flex-column pb-5">
+			<%= image_tag "resellers.png", alt: 'smartphone-hand', style:'bottom: 0px; max-width:90%;', class:'m-4' %>
+		</div>
+	</div>
+	<div class="row align-items bg-secondary">
+		<div class='p-5 col-sm-6 d-flex flex-column justify-content-center align-items-center order-md-2'>
+			<h2 class='text-white text-center'>Receba seus pedidos no whatsapp</h2>
+			<h3 class="text-primary text-center">Com todas as informações necessárias</h3>
+			<%= link_to "Experimente agora!", new_user_registration_path, class:'btn btn-primary mt-5 mt-4 btn-lg d-none d-md-block' %>
+		</div>
+		<div class="col-sm-6 p-0 position-relative d-md-flex justify-content-center" id="chat_phone_img">
+			<%= image_tag "chat.png", alt: 'smartphone-hand', class:'position-absolute', style:'bottom: 0px; max-width:90%;' %>
+		</div>
+	</div>
+	<div class="row bg-white">
+		<div class="col-sm-6 p-5">
+			<div class="pl-md-5">
+				<p><strong>O que é a Revendy</strong></p>
+				<P>A Revendy é a primeira plataforma a conectar vendedores a revendedores de uma mesma região no Brasil. Com ela é possível é possível escalar as suas vendas como lojistas, e criar um negócio do zero sem nenhum investimento como revendedor. Tudo isso sem sair de casa.</P>
+			</div>
+		</div>
+		<div class="col-sm-6 p-5">
+			<div class="pl-md-5">
+				<p><strong>Links</strong></p>
+				<div>
+					<a href="#como-funciona">Como funciona?</a>
+				</div>
+				<div>
+	          		<%= link_to 'Fale Conosco', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "" %>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

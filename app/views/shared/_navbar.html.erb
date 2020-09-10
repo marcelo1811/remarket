@@ -1,5 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <%= link_to 'Revendy', users_path, class: "navbar-brand text-primary" %>
+  <% if user_signed_in? %>
+    <%= link_to 'Revendy', users_path, class: "navbar-brand text-primary" %>
+  <% else %>
+    <%= link_to 'Revendy', root_path, class: "navbar-brand text-primary" %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -31,8 +35,31 @@
           <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link text-danger" %>
         </li>
       <% else %>
+
+        <% if current_page?(root_path) %>
+          <li class="nav-item">
+            <%= link_to 'Sou Lojista', landing_store_path, class: "nav-link" %><br />
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Quero Revender', root_path, class: "nav-link" %><br />
+          </li>
+        <% end %>
+      
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link text-primary" %>
+          <%= link_to 'Contato', "https://wa.me/5541995794954?text=Olá Marcelo, estou com uma dúvida sobre a Revendy", target: '_blank', class: "nav-link" %><br />
+        </li>
+
+        <% if current_page?(root_path) || current_page?(landing_store_path) %>
+          <li class="nav-item">
+            <a href="#como-funciona" class="nav-link">
+              Como Funciona?
+            </a>
+          </li>
+        <% end %>
+
+        <li class="nav-item">
+          <%= link_to "Entrar", new_user_session_path, class: "btn btn-outline-primary r-5 ml-3", style: 'width: 100px; border-radius: 50px;' %>
         </li>
       <% end %>
     </ul>

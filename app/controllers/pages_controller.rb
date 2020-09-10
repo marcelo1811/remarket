@@ -1,7 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :invite_reseller ]
+  skip_before_action :authenticate_user!, only: [ :invite_reseller, :home, :landing_store ]
 
   def home
+  end
+
+  def landing_store
   end
 
   def invite_reseller
