@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KT7SLDM');</script>
+    <!-- End Google Tag Manager -->
+    
     <!-- 
     <title>Revendy</title>
     <meta name="description" content="description of your website/webpage, make sure you use keywords!">
@@ -9,15 +17,28 @@
     <meta property="og:description" content="description of your website/webpage">
     <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png">
  -->
+
+    <!-- Hotjar Tracking Code for http://www.revendy.com.br -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1991887,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
     <title>Revendy</title>
-    <meta name="description" content="Revendy é uma plataforma de revenda de produtos. Trabalhar com a Revendy é simples como: 1. Procure seus produtos favoritos. 2. Compartilhe e venda no WhatsApp. 3. Receba sua margem de lucro. Comece seu negócio online hoje sem nenhum investimento ou conhecimento técnico.">
+    <meta name="description" content="Comece seu negócio sem nenhum investimento. Trabalhar com a Revendy é simples como: 1. Procure seus produtos favoritos. 2. Compartilhe e venda no WhatsApp. 3. Receba sua margem de lucro. Comece seu negócio online hoje sem nenhum investimento ou conhecimento técnico.">
 
     <% if content_for?(:head) %>
       <%= yield(:head) %>
     <% else %>
       <meta property="og:title" content="Revendy" />
       <meta property="og:url" content="https://www.revendy.com.br" />
-      <meta property="og:description" content="Revendy é uma plataforma de revenda de produtos. Trabalhar com a Revendy é simples como: 1. Procure seus produtos favoritos. 2. Compartilhe e venda no WhatsApp. 3. Receba sua margem de lucro. Comece seu negócio online hoje sem nenhum investimento ou conhecimento técnico.">
+      <meta property="og:description" content="Comece seu negócio sem nenhum investimento. Trabalhar com a Revendy é simples como: 1. Procure seus produtos favoritos. 2. Compartilhe e venda no WhatsApp. 3. Receba sua margem de lucro. Comece seu negócio online hoje sem nenhum investimento ou conhecimento técnico.">
       <!-- <meta property="og:image" content="//cdn.example.com/uploads/images/webpage_300x200.png"> -->
     <% end %>
 
@@ -28,9 +49,15 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+
   </head>
 
   <body style="padding-top: 50px;">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KT7SLDM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
