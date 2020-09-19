@@ -18,6 +18,7 @@
 			  <thead class="thead bg-primary text-light">
 			    <tr>
 			      <th scope="col">#</th>
+			      <th scope="col">Criado em</th>
 			      <th scope="col">Loja</th>
 			      <th scope="col">Responsável</th>
 			      <th scope="col">Produtos ativos</th>
@@ -30,6 +31,7 @@
 			  	<% @stores.each_with_index do |store, index| %>
 				    <tr>
 				      <th scope="row"><%= index + 1%></th>
+				      <td><%= store.created_at.strftime('%d/%m/%Y') %></td>
 				      <td><%= link_to store.name, dashboard_store_path(store) %></td>
 				      <td><%= store.user.full_name %></td>
 				      <td><%= store.products.active.size %></td>
@@ -49,6 +51,7 @@
 			  <thead class="thead bg-primary text-light">
 			    <tr>
 			      <th scope="col">#</th>
+			      <th scope="col">Criado em</th>
 			      <th scope="col">Catálogo</th>
 			      <th scope="col">Revendedor</th>
 			      <th scope="col">Produtos ativos</th>
@@ -61,6 +64,7 @@
 			  	<% @catalogues.each_with_index do |catalogue, index| %>
 				    <tr>
 				      <th scope="row"><%= index + 1%></th>
+				      <td><%= catalogue.created_at.strftime('%d/%m/%Y') %></td>
 				      <td><%= link_to catalogue.name, dashboard_catalogue_path(catalogue) %></td>
 				      <td><%= catalogue.user.full_name %></td>
 				      <td><%= catalogue.product_catalogues.size %></td>
