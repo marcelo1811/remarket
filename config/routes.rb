@@ -28,6 +28,12 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
+  namespace :dashboard do
+    resources :stores, only: [:show]
+    resources :catalogues, only: [:show]
+  end
+
   resources :catalogues, only: [:show, :edit, :update, :new, :create] do
     get 'suppliers', to: 'catalogues#suppliers', as: :suppliers
     resources :product_catalogues, only: [:edit, :update, :show]

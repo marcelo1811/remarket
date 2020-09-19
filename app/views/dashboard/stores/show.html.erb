@@ -1,0 +1,8 @@
+<h1><%= @store.name %></h1>
+
+<h3>Revendedores</h3>
+<% @store.catalogue_stores.includes(catalogue: :user).each do |catalogue_store| %>
+	<div>
+		<%= catalogue_store.catalogue.user.full_name %> - <%= catalogue_store.catalogue.whatsapp_beauty %>
+	</div>
+<% end %>
